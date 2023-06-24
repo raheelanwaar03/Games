@@ -1,52 +1,72 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+<!DOCTYPE html>
+<html lang="en">
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+
+<!-- Mirrored from betlio2.vercel.app/main/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 Jun 2023 07:04:18 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/swiper.css" />
+    <link rel="stylesheet" href="../../cdn.jsdelivr.net/npm/bootstrap-icons%401.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>{{ env('APP_NAME') }}</title>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="img-container">
+            <img class="img-fluid" height="150" width="150" src="assets/img/logo.png" alt="">
         </div>
+    </div>
+    <!-- welcome slider Section -->
+    <div class="login-email">
+        <div class="top-bg">
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <div class="login-card">
+            <div class="login-logo">
+                <img class="img-fluid logo" src="assets/img/logo.png" alt="">
+            </div>
+            <form action="{{ route('register') }}" method="POST">
+                @csrf
+                <div class="input-box">
+                    <img src="assets/img/user.png" height="18" width="18" alt="">
+                    <input type="text" name="name" placeholder="User Name">
+                </div>
+                <div class="input-box">
+                    <img src="assets/img/email.png" height="15" width="20" alt="">
+                    <input type="email" name="email" placeholder="Email">
+                </div>
+                <div class="input-box">
+                    <img src="assets/img/lock.png" height="18" width="14" alt="">
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+                <div class="input-box">
+                    <img src="assets/img/lock.png" height="18" width="14" alt="">
+                    <input type="password" name="password_confirmation" placeholder="Confirm Password">
+                </div>
+                <label class="mb-3">
+                    <input type="checkbox" checked="checked">
+                    I agree to sports betting <a href="terms.html" class="text-blue">Terms and services</a>,
+                    Privacy policy and content Privacy
+                </label>
+                <button class="gradient-btn-full">Register</button>
+            </form>
+            <p class="text-center mt-2">Already have an account? <a href="{{ route('login') }}"
+                    class="text-blue">Login</a></p>
         </div>
+    </div>
+    <!-- JS file links -->
+    <script src="assets/js/main.js"></script>
+</body>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+<!-- Mirrored from betlio2.vercel.app/main/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 Jun 2023 07:04:19 GMT -->
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ml-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</html>

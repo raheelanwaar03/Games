@@ -1,47 +1,55 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/swiper.css" />
+    <link rel="stylesheet" href="../../cdn.jsdelivr.net/npm/bootstrap-icons%401.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>{{ env('APP_NAME') }}</title>
+</head>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+<body>
+    <div id="preloader">
+        <div class="img-container">
+            <img class="img-fluid" height="150" width="150" src="assets/img/logo.png" alt="">
         </div>
+    </div>
+    <!-- welcome slider Section -->
+    <div class="login-email">
+        <div class="top-bg">
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
+        <div class="login-card">
+            <div class="login-logo">
+                <img class="img-fluid logo" src="assets/img/logo.png" alt="">
+            </div>
+            <form>
+                <div class="input-box">
+                    <img src="assets/img/email.png" height="15" width="20" alt="">
+                    <input type="email" placeholder="Email">
+                </div>
+                <div class="input-box">
+                    <img src="assets/img/lock.png" height="18" width="14" alt="">
+                    <input type="password" placeholder="Password">
+                </div>
+                <label class="mb-3">
+                    <input type="checkbox" checked="checked">
+                    Keep me login
+                </label>
+                <button class="gradient-btn-full">Login</button>
+            </form>
+            <p class="text-center mt-2">Already have an account? <a href="{{ route('register') }}"
+                    class="text-blue">Register</a></p>
         </div>
+    </div>
+    <!-- JS file links -->
+    <script src="assets/js/main.js"></script>
+</body>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ml-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</html>
