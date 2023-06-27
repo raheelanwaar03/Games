@@ -17,9 +17,10 @@
 <body>
     <div id="preloader">
         <div class="img-container">
-            <img class="img-fluid" height="150" width="150" src="assets/img/logo.png" alt="">
+            <img class="img-fluid" height="150" width="150" src="{{ asset('assets/img/log-bg.png') }}" alt="">
         </div>
     </div>
+    <x-alert/>
     <!-- welcome slider Section -->
     <div class="login-email">
         <div class="top-bg">
@@ -27,19 +28,20 @@
         </div>
         <div class="login-card">
             <div class="login-logo">
-                <img class="img-fluid logo" src="assets/img/logo.png" alt="">
+                <img class="img-fluid logo" src="{{ asset('assets/img/logo.png') }}" alt="">
             </div>
-            <form>
+            <form action="{{ route('login') }}" method='POST'>
+                @csrf
                 <div class="input-box">
-                    <img src="assets/img/email.png" height="15" width="20" alt="">
-                    <input type="email" placeholder="Email">
+                    <img src="{{ asset('assets/img/email.png') }}" height="15" width="20" alt="">
+                    <input type="email" name="email" placeholder="Email">
                 </div>
                 <div class="input-box">
-                    <img src="assets/img/lock.png" height="18" width="14" alt="">
-                    <input type="password" placeholder="Password">
+                    <img src="{{ asset('assets/img/lock.png') }}" height="18" width="14" alt="">
+                    <input type="password" name="password" placeholder="Password">
                 </div>
                 <label class="mb-3">
-                    <input type="checkbox" checked="checked">
+                    <input type="checkbox" name="remember" checked="checked">
                     Keep me login
                 </label>
                 <button class="gradient-btn-full">Login</button>

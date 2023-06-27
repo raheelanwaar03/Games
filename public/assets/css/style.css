@@ -289,7 +289,7 @@ section {
 .profile {
   background-image: url(../img/profile-bg.png);
   background-repeat: no-repeat;
-  background-size: 100vw;
+  background-size: 200vw;
   background-color: var(--body-color);
   background-position: top;
 }
