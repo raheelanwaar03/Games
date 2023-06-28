@@ -11,4 +11,10 @@ class UserDashboardController extends Controller
     {
         return view('user.dashboard');
     }
+
+    public function games()
+    {
+        return view('user.games.index');
+    }
+
 }

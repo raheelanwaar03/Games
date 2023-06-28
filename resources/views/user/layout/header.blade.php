@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
     <link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('assets/css/swiper.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('../../cdn.jsdelivr.net/npm/bootstrap-icons%401.10.5/font/bootstrap-icons.css') }}">
+    <!-- Option 1: Include in HTML -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
     <title>{{ env('APP_NAME') }}</title>
 </head>
@@ -19,35 +19,36 @@
 <body>
     <div id="preloader">
         <div class="img-container">
-            <img class="img-fluid" height="150" width="150" src="{{asset('assets/img/logo.png')}}" alt="">
+            <img class="img-fluid" height="150" width="150" src="{{ asset('assets/img/logo.png') }}"
+                alt="">
         </div>
     </div>
     <!-- welcome slider Section -->
     <section class="matchboard mx-3 position-relative">
         <div class="bottom-navigation">
-            <a href="matchboard.html" class="single-nav active">
-                <i class="bi bi-trophy"></i>
+            <a href="{{ route('User.Dashboard') }}" class="single-nav">
+                <i class="bi bi-house-door"></i>
                 <span>Home</span>
             </a>
-            <a href="sports.html" class="single-nav">
-                <i class="bi bi-dribbble"></i>
-                <span>Income</span>
+            <a href="#" class="single-nav">
+                <i class="bi bi-cash"></i>
+                <span>Earnings</span>
             </a>
-            <a href="mybets.html" class="single-nav">
+            <a href="{{ route('User.Games') }}" class="single-nav">
                 <i class="bi bi-play-circle"></i>
-                <span>Task</span>
+                <span>Games</span>
             </a>
-            <a href="news.html" class="single-nav">
-                <i class="bi bi-globe-americas"></i>
-                <span>Finance</span>
+            <a href="#" class="single-nav">
+                <i class="bi bi-gear"></i>
+                <span>Settings</span>
             </a>
-            <a href="statistics.html" class="single-nav">
-                <i class="bi bi-globe"></i>
-                <span>Mine</span>
+            <a href="#" class="single-nav">
+                <i class="bi bi-wallet2"></i>
+                <span>Wallet</span>
             </a>
         </div>
         <div class="d-flex justify-content-end align-items-center mt-3 mb-2 gap-2">
-            <a href="deposit.html">
+            <a href="#">
                 <img src="{{ asset('assets/img/plus.png') }}" width="25" alt="">
             </a>
             <h6 class="mb-0">${{ auth()->user()->balance }}</h6>
@@ -71,9 +72,10 @@
                         </div>
                         <div class="d-flex justify-content-between align-items-center pb-3">
                             <div class="d-flex gap-2">
-                                <img src="{{ asset('assets/img/profile.png') }}" width="55" height="55" alt="">
+                                <img src="{{ asset('assets/img/profile.png') }}" width="55" height="55"
+                                    alt="">
                                 <div>
-                                    <h4 class="text-white mb-0">Peter Moses</h4>
+                                    <h4 class="text-white mb-0">{{ auth()->user()->name }}</h4>
                                     <span class="text-white">{{ auth()->user()->email }}</span>
                                 </div>
                             </div>
@@ -95,7 +97,7 @@
                                     <h3>${{ auth()->user()->balance }}</h3>
                                 </div>
                                 <div class="d-flex gap-2 align-items-center">
-                                    <a class="gradient-btn py-2 px-3 fs-6 fw-normal" href="deposit.html">Deposit</a>
+                                    <a class="gradient-btn py-2 px-3 fs-6 fw-normal" href="#">Recharge</a>
                                     <a class="outline-btn-small fs-6" href="withdraw.html">Withdraw</a>
                                 </div>
                             </div>
