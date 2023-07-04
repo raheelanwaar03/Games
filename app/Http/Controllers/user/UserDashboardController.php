@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\Games;
 use Illuminate\Http\Request;
 
 class UserDashboardController extends Controller
@@ -14,8 +15,8 @@ class UserDashboardController extends Controller
 
     public function games()
     {
-        // $games =
-        return view('user.games.index');
+        $games = Games::get();
+        return view('user.games.index',compact('games'));
     }
 
 }
