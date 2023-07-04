@@ -14,6 +14,7 @@ class UserDashboardController extends Controller
 
     public function games()
     {
+        // $games =
         return view('user.games.index');
     }
 
