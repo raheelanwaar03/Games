@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('game_id');
             $table->string('price');
             $table->string('qty');
+            $table->string('total_price');
+            $table->string('commission');
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

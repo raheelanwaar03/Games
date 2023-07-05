@@ -154,5 +154,10 @@
             </div>
 
         </div>
-        <h1 class="fw-500 mb-3">User Dashboard</h1>
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="fw-500 mb-3">User Dashboard</h1>
+            @if ($cart != null)
+            <a href="#" class="btn btn-primary">Cart Items</a>
+            @endif
+        </div>
     </section>

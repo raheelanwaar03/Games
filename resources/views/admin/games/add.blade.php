@@ -29,9 +29,9 @@
                                         <input type="number" name="price" class="form-control input-rounded"
                                             placeholder="Price">
                                     </div>
-                                    </div><div class="mb-3">
-                                        <input type="number" name="qty" class="form-control input-rounded"
-                                            placeholder="Quantity">
+                                    <div class="mb-3">
+                                        <input type="number" name="commission" class="form-control input-rounded"
+                                            placeholder="Commission">
                                     </div>
                                     <div class="mb-3">
                                         <input type="file" name="image" class="form-control input-rounded">
@@ -47,4 +47,4 @@
             </div>
         </div>
     </div>
-    @endsection
+@endsection

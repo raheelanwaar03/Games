@@ -18,10 +18,12 @@
                                     <thead>
                                         <tr>
                                             <th>Title</th>
-                                            <th>price</th>
+                                            <th>Price</th>
                                             <th>Description</th>
+                                            <th>Commission</th>
                                             <th>Image</th>
                                             <th>Date</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -30,11 +32,16 @@
                                                 <td>{{ $game->title }}</td>
                                                 <td>{{ $game->price }}</td>
                                                 <td>{{ $game->description }}</td>
+                                                <td>{{ $game->commission }}</td>
                                                 <td>
                                                     <img src="{{ asset('images/' . $game->image) }}" alt="Image"
                                                         class="img-responsive" height="60px" width="60px">
                                                 </td>
                                                 <td>{{ $game->created_at }}</td>
+                                                <td>
+                                                    <a href="{{ route('Admin.Delete.Game', ['id' => $game->id]) }}"
+                                                        class="btn btn-sm btn-danger">Del</a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

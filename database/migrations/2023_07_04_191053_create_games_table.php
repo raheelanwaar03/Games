@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('price');
-            $table->string('qty');
+            $table->string('commission');
             $table->string('image');
             $table->timestamps();
         });

@@ -91,18 +91,15 @@
                             <span class="nav-text">Dashboard</span>
                         </a>
                     </li>
-                    {{-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="fa-solid fa-gear fw-bold"></i>
                             <span class="nav-text">Users</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="{{ route('Admin.All.Users') }}">All Users</a></li>
-                            <li><a href="{{ route('Admin.Pending.Users') }}">Pending Users</a></li>
-                            <li><a href="{{ route('Admin.Approved.Users') }}">Approved Users</a></li>
-                            <li><a href="{{ route('Admin.Rejected.Users') }}">Rejected Users</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    {{-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-072-printer"></i>
                             <span class="nav-text">Widthraw</span>
                         </a>
@@ -140,6 +137,12 @@
                             <li><a href="{{ route('Admin.Add.Game') }}">Add Games</a></li>
                             <li><a href="{{ route('Admin.All.Games') }}">All Games</a></li>
                         </ul>
+                    </li>
+                    <li>
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button class="btn btn-sm btn-primary">Logout</button>
+                        </form>
                     </li>
                 </ul>
                 <div class="copyright">

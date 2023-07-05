@@ -17,8 +17,8 @@
                                 <form action="{{ route('User.Cart', ['id' => $game->id]) }}" method="POST">
                                     @csrf
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <input type="number" value="1" min="1" style="width: 40px;">
-                                        <button class="btn btn-primary">Add
+                                        <input type="number" name="qty" value="1" min="1" style="width: 40px;">
+                                        <button type="submit" class="btn btn-primary">Add
                                             To
                                             Cart</button>
                                     </div>
@@ -27,6 +27,7 @@
                         </div>
                     </div>
                 @empty
+                <h3>No Game Added Yet</h3>
                 @endforelse
             </div>
         </div>
