@@ -11,6 +11,7 @@ Route::get('/Dashboard',[UserDashboardController::class,'index'])->name('Dashboa
 Route::get('/Games',[UserDashboardController::class,'games'])->name('Games');
 
 Route::post('/Add-To-Cart/{id}',[AddToCartController::class,'index'])->name('Cart');
+Route::get('/Cart/Items',[AddToCartController::class,'items'])->name('Cart.Items');
 
 
 });

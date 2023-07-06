@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('game_id');
+            $table->string('name');
+            $table->string('image');
             $table->string('price');
             $table->string('qty');
             $table->string('total_price');

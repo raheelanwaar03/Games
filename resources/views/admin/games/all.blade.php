@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">All Games</h4>
-                            <a href="{{ route('Admin.All.Games') }}" class="btn btn-primary">Add New</a>
+                            <a href="{{ route('Admin.Add.Game') }}" class="btn btn-primary">Add New</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
