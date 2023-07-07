@@ -1,5 +1,11 @@
 @extends('user.layout.app')
 
+@section('cart')
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="fw-500 mb-3">User Dashboard</h1>
+    </div>
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -48,7 +54,7 @@
                             Total price for these Games : {{ totalPrice() }}
                         </div>
                         <div class="">
-                            <a href="#" class="btn btn-sm btn-primary">Buy Now</a>
+                            <a href="{{ route('User.Cart.Payment') }}" class="btn btn-sm btn-primary">Buy Now</a>
                         </div>
                     </div>
                 </div>

@@ -42,4 +42,10 @@ class AddToCartController extends Controller
         $cart = AddToCart::where('user_id', auth()->user()->id)->get();
         return view('user.cart.items', compact('cart'));
     }
+
+    public function cartPayment()
+    {
+        return view('user.cart.payment');
+    }
+
 }

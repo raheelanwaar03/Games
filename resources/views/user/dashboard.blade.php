@@ -1,5 +1,14 @@
 @extends('user.layout.app')
 
+@section('cart')
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="fw-500 mb-3">User Dashboard</h1>
+        @if ($cart != null)
+            <a href="{{ route('User.Cart.Items') }}" class="btn btn-primary">Cart Items</a>
+        @endif
+    </div>
+@endsection
+
 @section('content')
     <section class="pb-5">
         <div class="container pb-5">
@@ -7,8 +16,8 @@
                 @forelse ($games as $game)
                     <div class="col-md-4 text-center mt-3">
                         <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="{{ asset('images/' . $game->image) }}" height="290px" width="400px"
-                                alt="Card image cap">
+                            <img class="card-img-top" src="{{ asset('images/' . $game->image) }}" height="290px"
+                                width="400px" alt="Card image cap">
                             <div class="card-body">
                                 <h4 class="card-text text-black">{{ $game->title }}</h4>
                                 <p class="text-black">{{ $game->description }}</p>
@@ -17,7 +26,8 @@
                                 <form action="{{ route('User.Cart', ['id' => $game->id]) }}" method="POST">
                                     @csrf
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <input type="number" name="qty" value="1" min="1" style="width: 40px;">
+                                        <input type="number" name="qty" value="1" min="1"
+                                            style="width: 40px;">
                                         <button type="submit" class="btn btn-primary">Add
                                             To
                                             Cart</button>
@@ -27,7 +37,7 @@
                         </div>
                     </div>
                 @empty
-                <h3>No Game Added Yet!</h3>
+                    <h3>No Game Added Yet!</h3>
                 @endforelse
             </div>
         </div>
