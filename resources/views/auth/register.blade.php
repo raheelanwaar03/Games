@@ -21,7 +21,7 @@
 <body>
     <div id="preloader">
         <div class="img-container">
-            <img class="img-fluid" height="150" width="150" src="assets/img/logo.png" alt="">
+            <img class="img-fluid" height="150" width="150" src="{{ asset('assets/img/logo.png') }}" alt="">
         </div>
     </div>
     <!-- welcome slider Section -->
@@ -31,7 +31,7 @@
         </div>
         <div class="login-card">
             <div class="login-logo">
-                <img class="img-fluid logo" src="assets/img/logo.png" alt="">
+                <img class="img-fluid logo" src="{{ asset('assets/img/logo.png') }}" alt="">
             </div>
             <form action="{{ route('register') }}" method="POST">
                 @csrf
@@ -43,6 +43,7 @@
                     <img src="assets/img/email.png" height="15" width="20" alt="">
                     <input type="email" name="email" placeholder="Email">
                 </div>
+                <input type="hidden" name="referal" value="{{ $referal }}">
                 <div class="input-box">
                     <img src="assets/img/lock.png" height="18" width="14" alt="">
                     <input type="password" name="password" placeholder="Password">
@@ -63,10 +64,7 @@
         </div>
     </div>
     <!-- JS file links -->
-    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
-
-
-<!-- Mirrored from betlio2.vercel.app/main/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 Jun 2023 07:04:19 GMT -->
 
 </html>

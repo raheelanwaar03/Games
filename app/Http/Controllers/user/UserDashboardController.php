@@ -56,5 +56,11 @@ class UserDashboardController extends Controller
 
     }
 
+    public function refer()
+    {
+        return view('user.refer.index');
+    }
+
+
 
 }

@@ -138,7 +138,7 @@
                             </div>
                             <i class="bi bi-chevron-right"></i>
                         </a>
-                        <a href="invite.html" class="profile-row mt-3">
+                        <a href="{{ route('User.Refer.Friend') }}" class="profile-row mt-3">
                             <div class="d-flex align-items-center gap-2">
                                 <img src="{{ asset('assets/img/invite-icon.png') }}" alt="">
                                 <p class="fw-500 mb-0">Invite Friends</p>

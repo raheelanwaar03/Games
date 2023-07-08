@@ -1,0 +1,45 @@
+@extends('user.layout.app')
+
+@section('content')
+    <!-- welcome slider Section -->
+    <section class="invite mx-3 d-flex flex-column h-100 mb-5 pb-5">
+        <div class="d-flex justify-content-between align-items-center my-3">
+            <a href="#" onclick="window.history.back()">
+                <i class="bi bi-arrow-left"></i>
+            </a>
+            <p class="mb-0 fw-500">Invite Friends</p>
+            <a href="edit-profile.html">
+                <i class="bi bi-gear"></i>
+            </a>
+        </div>
+        <div class="terms-card flex-grow-1">
+            <h1 class="text-center pt-4">Earn Commission
+                inviting your friends</h1>
+            <div class="d-flex justify-content-center my-5 py-5">
+                <img src="{{ asset('assets/img/invite.png') }}" class="img-fluid" height="200" width="200"
+                    alt="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control bg-transparent text-white"
+                value="{{ route('register', ['referal' => auth()->user()->name]) }}" id="myInput" readonly>
+        </div>
+        <div class="btns mt-4 d-flex justify-content-center gap-4">
+            <a onclick="copy()" class="gradient-btn-full">Copy Invitation</a>
+        </div>
+    </section>
+
+
+    <script>
+        function copy() {
+            // Get the text field
+            var copyText = document.getElementById("myInput");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            // Alert the copied text
+            alert("Copied the text: " + copyText.value);
+        }
+    </script>
+@endsection
