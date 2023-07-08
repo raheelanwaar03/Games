@@ -21,6 +21,7 @@
                                             <th>Balance</th>
                                             <th>Status</th>
                                             <th>Date</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -31,6 +32,10 @@
                                                 <td>{{ $user->balance }}</td>
                                                 <td>{{ $user->status }}</td>
                                                 <td>{{ $user->created_at }}</td>
+                                                <td>
+                                                    <a href="{{ route('Admin.Edit.User', ['id' => $user->id]) }}"
+                                                        class="btn btn-sm btn-primary">Edit</a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
