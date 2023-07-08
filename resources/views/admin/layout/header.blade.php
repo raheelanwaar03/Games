@@ -115,7 +115,7 @@
                             <span class="nav-text">Game Orders</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="{{ route('Admin.All.Orders') }}">All Orders</a></li>
+                            <li><a href="{{ route('Admin.All.Orders') }}">Pendings Orders</a></li>
                             <li><a href="{{ route('Admin.All.Approved.Orders') }}">Approved Orders</a></li>
                             <li><a href="{{ route('Admin.All.Rejected.Orders') }}">Rejected Orders</a></li>
                         </ul>

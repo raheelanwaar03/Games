@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Models\user\GamesPrice;
 use Illuminate\Http\Request;
 
@@ -29,8 +30,19 @@ class GameOrdersController extends Controller
     public function approve($id)
     {
         $game = GamesPrice::find($id);
+
+        // getting order total price and its 3%
+        $totalPrice = $game->total_price;
+        $firstCommission = $totalPrice * 3 / 100;
+        // getting user and adding amount to his net balance
+        $user_id = $game->user_id;
+        $user = User::where('id', $user_id)->first();
+        $user->balance += $firstCommission;
+        $user->save();
+        // changing status
         $game->status = 'approved';
         $game->save();
+
         return redirect()->back()->with('success', 'User Game Order Approved Successfully');
     }
 
