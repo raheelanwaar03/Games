@@ -99,23 +99,22 @@
                             <li><a href="{{ route('Admin.All.Users') }}">All Users</a></li>
                         </ul>
                     </li>
-                    {{-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-072-printer"></i>
                             <span class="nav-text">Widthraw</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="{{ route('Admin.All.Widthraw') }}">All</a></li>
-                            <li><a href="{{ route('Admin.Pending.Widthraw') }}">Pending</a></li>
-                            <li><a href="{{ route('Admin.Approved.Widthraw') }}">Approved</a></li>
-                            <li><a href="{{ route('Admin.Rejected.Widthraw') }}">Rejected</a></li>
+                             <li><a href="{{ route('Admin.All.Widthrawal.Requests') }}">Pending</a></li>
+                            <li><a href="{{ route('Admin.All.Approved.Widthraw') }}">Approved</a></li>
+                            <li><a href="{{ route('Admin.All.Rejected.Widthraw') }}">Rejected</a></li>
                         </ul>
-                    </li> --}}
+                    </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-086-star"></i>
                             <span class="nav-text">Game Orders</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="{{ route('Admin.All.Orders') }}">Pendings Orders</a></li>
+                            <li><a href="{{ route('Admin.All.Orders') }}">Pending Orders</a></li>
                             <li><a href="{{ route('Admin.All.Approved.Orders') }}">Approved Orders</a></li>
                             <li><a href="{{ route('Admin.All.Rejected.Orders') }}">Rejected Orders</a></li>
                         </ul>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Models\user\UserTranscations;
 use App\Models\user\UserWallet;
 use App\Models\user\WidthrawBalance;
@@ -13,6 +14,10 @@ class UserWidthrawController extends Controller
     public function widthraw()
     {
         $wallet = UserWallet::where('user_id', auth()->user()->id)->first();
+        if($wallet = '')
+        {
+            return redirect()->route('User.Add.Wallet')->with('error','Please add your wallet address first');
+        }
         return view('user.widthraw.index', compact('wallet'));
     }
 
@@ -45,6 +50,11 @@ class UserWidthrawController extends Controller
         $userWidthraw->type = $wallet->type;
         $userWidthraw->amount = $validated['amount'];
         $userWidthraw->save();
+
+        // dedecting amount from user balance
+        $user = User::where('id',$wallet->user_id)->first();
+        $user->balance -= $validated['amount'];
+        $user->save();
 
         // adding in to user transcations
 

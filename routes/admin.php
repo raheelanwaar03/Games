@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\GameOrdersController;
 use App\Http\Controllers\admin\GamesController;
+use App\Http\Controllers\admin\WidthrawalController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -29,7 +30,12 @@ Route::name('Admin.')->prefix('Admin/')->middleware('admin','auth')->group(funct
     Route::get('All/Rejected/Deposit',[AdminDashboardController::class,'rejectedDeposit'])->name('Rejected.Deposit');
     Route::get('Make/Approve/{id}',[AdminDashboardController::class,'makeApprove'])->name('Make.Approve');
     Route::get('Make/Reject/{id}',[AdminDashboardController::class,'makeReject'])->name('Make.Reject');
-
+    // Widthrawal Routes
+    Route::get('All/Widthrawal/Requests',[WidthrawalController::class,'index'])->name('All.Widthrawal.Requests');
+    Route::get('Approved/Widthrawal/Requests',[WidthrawalController::class,'approvedWidthraw'])->name('All.Approved.Widthraw');
+    Route::get('Rejected/Widthrawal/Requests',[WidthrawalController::class,'rejectedWidthraw'])->name('All.Rejected.Widthraw');
+    Route::get('Make/Widthraw/Approved/{id}',[WidthrawalController::class,'approve'])->name('Make.Widthraw.Approved');
+    Route::get('Make/Widthraw/Rejected/{id}',[WidthrawalController::class,'reject'])->name('Make.Widthraw.Rejected');
 
 });
 
