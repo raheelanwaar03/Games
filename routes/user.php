@@ -3,6 +3,8 @@
 use App\Http\Controllers\user\AddToCartController;
 use App\Http\Controllers\user\UserDashboardController;
 use App\Http\Controllers\user\UserDepositController;
+use App\Http\Controllers\user\UserWidthrawController;
+use App\Models\user\WidthrawBalance;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,5 +20,12 @@ Route::name('User.')->prefix('User')->middleware('auth', 'user')->group(function
     // Deposit Routes
     Route::get('/Deposit',[UserDepositController::class,'index'])->name('Deposit');
     Route::post('/Store/Deposit',[UserDepositController::class,'store'])->name('Store.Deposit');
+    // Widthraw Routes
+    Route::get('Widthraw/Balance',[UserWidthrawController::class,'widthraw'])->name('Widthraw');
+    Route::get('See/All/Transcations',[UserWidthrawController::class,'seeAll'])->name('See.All.Transcations');
+    Route::post('Store/Widthraw',[UserWidthrawController::class,'storeWidthraw'])->name('Store.Widthraw');
+    // add Wallet
+    Route::get('Add/Wallet',[UserDashboardController::class,'addWallet'])->name('Add.Wallet');
+    Route::post('Store/Wallet',[UserDashboardController::class,'storeWallet'])->name('Store.Wallet');
 
 });

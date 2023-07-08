@@ -32,9 +32,9 @@
                 <i class="bi bi-house-door"></i>
                 <span>Home</span>
             </a>
-            <a href="#" class="single-nav">
+            <a href="{{ route('User.See.All.Transcations') }}" class="single-nav">
                 <i class="bi bi-cash"></i>
-                <span>Earnings</span>
+                <span>Transcations</span>
             </a>
             <a href="{{ route('User.Games') }}" class="single-nav">
                 <i class="bi bi-play-circle"></i>
@@ -44,7 +44,7 @@
                 <i class="bi bi-gear"></i>
                 <span>Settings</span>
             </a>
-            <a href="#" class="single-nav">
+            <a href="{{ route('User.Add.Wallet') }}" class="single-nav">
                 <i class="bi bi-wallet2"></i>
                 <span>Wallet</span>
             </a>
@@ -99,8 +99,9 @@
                                     <h3>${{ auth()->user()->balance }}</h3>
                                 </div>
                                 <div class="d-flex gap-2 align-items-center">
-                                    <a class="gradient-btn py-2 px-3 fs-6 fw-normal" href="#">Recharge</a>
-                                    <a class="outline-btn-small fs-6" href="withdraw.html">Withdraw</a>
+                                    <a class="gradient-btn py-2 px-3 fs-6 fw-normal"
+                                        href="{{ route('User.Deposit') }}">Recharge</a>
+                                    <a class="outline-btn-small fs-6" href="{{ route('User.Widthraw') }}">Withdraw</a>
                                 </div>
                             </div>
                             <div class="card-bottom">
