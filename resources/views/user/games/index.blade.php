@@ -20,9 +20,6 @@
                         </div>
                     </div>
                 </div>
-                @empty
-                    <h3>No Game Added Yet</h3>
-                    @endforelse
                 </div>
             </div>
             </div>
