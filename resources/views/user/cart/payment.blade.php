@@ -20,7 +20,8 @@
             <img src="{{ asset('assets/img/Qr.jpeg') }}" height="200px" width="200px" alt="Qr">
         </div>
         <div class="input-box">
-            <input type="text" value="0xb99826f0a1c4b3e42dddfe70c57d2e9e6a944c6f" style="width: 100%" id="myInput" readonly />
+            <input type="text" value="0xb99826f0a1c4b3e42dddfe70c57d2e9e6a944c6f" style="width: 100%" id="myInput"
+                readonly />
             <a onclick="copy()" class="ref-copy pr-4" style="border-radius:10px;"><i class="fa fa-copy"></i></a>
         </div>
 
@@ -29,14 +30,15 @@
         </div>
 
         <div class="profile-card px-2 py-3 pb-5 mb-5 rounded-4">
-            <form>
+            <form action="{{ route('User.Cart.Games.Bill') }}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="input-box">
-                    <input type="text" style="width: 100%" placeholder="Enter TrxId "/>
+                    <input type="text" name="trx_id" style="width: 100%" placeholder="Enter TrxId " />
                 </div>
                 <div class="input-box gap-1">
-                    <input type="file" name="Image">
+                    <input type="file" name="trx_image">
                 </div>
-                <a href="matchboard.html" class="gradient-btn-full">Deposit</a>
+                <button type="submit" class="gradient-btn-full">Submit</button>
             </form>
         </div>
     </section>

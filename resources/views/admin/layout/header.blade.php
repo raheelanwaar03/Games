@@ -109,17 +109,18 @@
                             <li><a href="{{ route('Admin.Approved.Widthraw') }}">Approved</a></li>
                             <li><a href="{{ route('Admin.Rejected.Widthraw') }}">Rejected</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                        <i class="flaticon-086-star"></i>
-                            <span class="nav-text">Level</span>
+                            <i class="flaticon-086-star"></i>
+                            <span class="nav-text">Game Orders</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="{{ route('Admin.Level.Requests.From.Users') }}">All Requests</a></li>
-                            <li><a href="{{ route('Admin.Unlock.Users') }}">Unlocked Levels</a></li>
+                            <li><a href="{{ route('Admin.All.Orders') }}">All Orders</a></li>
+                            <li><a href="{{ route('Admin.All.Approved.Orders') }}">Approved Orders</a></li>
+                            <li><a href="{{ route('Admin.All.Rejected.Orders') }}">Rejected Orders</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    {{-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-045-heart"></i>
                             <span class="nav-text">Luck</span>
                         </a>

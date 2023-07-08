@@ -15,14 +15,15 @@
             <div class="row justify-content-center">
                 @forelse ($games as $game)
                     <div class="col-md-4 text-center mt-3">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="{{ asset('images/' . $game->image) }}" height="290px"
-                                width="400px" alt="Card image cap">
+                        <div class="card bg-transparent" style="width: 18rem;border: 1px solid white">
+                            <img class="card-img-top" src="{{ asset('images/' . $game->image) }}" height="240px"
+                                width="350px" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-text text-black">{{ $game->title }}</h4>
-                                <p class="text-black">{{ $game->description }}</p>
+                                <h4 class="card-text text-white">{{ $game->title }} : {{ $game->price }}$</h4>
+                                <p class="card-text text-white">Commission: {{ $game->commission }}$</p>
+                                <p class="text-white">{{ $game->description }}</p>
                             </div>
-                            <div class="card-footer">
+                            <div class="card-footer" style="border-top:1px solid white">
                                 <form action="{{ route('User.Cart', ['id' => $game->id]) }}" method="POST">
                                     @csrf
                                     <div class="d-flex justify-content-between align-items-center">

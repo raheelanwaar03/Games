@@ -30,7 +30,7 @@
                                             placeholder="Price">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="number" name="commission" class="form-control input-rounded"
+                                        <input type="number" name="commission" step="0.1" class="form-control input-rounded"
                                             placeholder="Commission">
                                     </div>
                                     <div class="mb-3">
