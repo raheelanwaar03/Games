@@ -21,6 +21,13 @@ Route::name('Admin.')->prefix('Admin/')->middleware('admin','auth')->group(funct
     Route::get('All/Rejected/Games/Orders',[GameOrdersController::class,'rejectedGames'])->name('All.Rejected.Orders');
     Route::get('Make/Order/Approved/{id}',[GameOrdersController::class,'approve'])->name('Make.Order.Approved');
     Route::get('Make/Order/Rejected/{id}',[GameOrdersController::class,'reject'])->name('Make.Order.Rejected');
+    // Deposit requests
+    Route::get('All/Deposit/Requests',[AdminDashboardController::class,'allDeposit'])->name('All.Deposit');
+    Route::get('All/Approved/Deposit',[AdminDashboardController::class,'approvedDeposit'])->name('Approved.Deposit');
+    Route::get('All/Rejected/Deposit',[AdminDashboardController::class,'rejectedDeposit'])->name('Rejected.Deposit');
+    Route::get('Make/Approve/{id}',[AdminDashboardController::class,'makeApprove'])->name('Make.Approve');
+    Route::get('Make/Reject/{id}',[AdminDashboardController::class,'makeReject'])->name('Make.Reject');
+
 
 });
 

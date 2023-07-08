@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\user\GamesPrice;
+use App\Models\user\UserDeposit;
 use App\Models\user\UserTranscations;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -50,4 +51,40 @@ class AdminDashboardController extends Controller
 
         return redirect()->back()->with('success', 'All user got thier commission on thier approved games');
     }
+
+    public function allDeposit()
+    {
+        $deposits = UserDeposit::where('status','pending')->get();
+        return view('admin.deposit.index',compact('deposits'));
+    }
+
+    public function rejectedDeposit()
+    {
+        $deposits = UserDeposit::where('status','rejected')->get();
+        return view('admin.deposit.reject',compact('deposits'));
+    }
+
+    public function approvedDeposit()
+    {
+        $deposits = UserDeposit::where('status','approved')->get();
+        return view('admin.deposit.approved',compact('deposits'));
+    }
+
+    public function makeApprove($id)
+    {
+        $deposit = UserDeposit::find($id);
+        $deposit->status = 'approved';
+        $deposit->save();
+        return redirect()->back()->with('success','User deposit approved successfully');
+
+    }
+
+    public function makeReject($id)
+    {
+        $deposit = UserDeposit::find($id);
+        $deposit->status = 'rejected';
+        $deposit->save();
+        return redirect()->back()->with('success','User deposit rejected successfully');
+    }
+
 }

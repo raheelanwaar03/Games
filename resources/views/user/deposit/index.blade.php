@@ -2,7 +2,7 @@
 
 @section('cart')
     <div class="d-flex justify-content-between align-items-center">
-        <h1 class="fw-500 mb-3">Games Payment </h1>
+        <h1 class="fw-500 mb-3">Deposit</h1>
     </div>
 @endsection
 
@@ -12,8 +12,8 @@
             <a href="#" onclick="window.history.back()">
                 <i class="bi bi-arrow-left text-white"></i>
             </a>
-            <p class="mb-0 text-white">Send the Total payment on given wallet address and enter screenshot with TrxId below
-                to earn with us.</p>
+            <p class="mb-0 text-white">Send the amount on our given wallet which you want to add in your wallet address and
+                enter screenshot with TrxId below.</p>
             <span> </span>
         </div>
         <div class="text-center mb-3">
@@ -25,18 +25,17 @@
             <a onclick="copy()" class="ref-copy pr-4" style="border-radius:10px;"><i class="fa fa-copy"></i></a>
         </div>
 
-        <div class="d-flex justify-content-center py-4">
-            <h5>Total Amount: <span class="text-white">${{ totalPrice() }}</span></h5>
-        </div>
-
         <div class="profile-card px-2 py-3 pb-5 mb-5 rounded-4">
-            <form action="{{ route('User.Cart.Games.Bill') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('User.Store.Deposit') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                <div class="input-box">
+                    <input type="text" name="amount" style="width: 100%" placeholder="Enter Amount " />
+                </div>
                 <div class="input-box">
                     <input type="text" name="trx_id" style="width: 100%" placeholder="Enter TrxId " />
                 </div>
                 <div class="input-box gap-1">
-                    <input type="file" name="trx_image">
+                    <input type="file" name="screen_shot">
                 </div>
                 <button type="submit" class="gradient-btn-full">Submit</button>
             </form>

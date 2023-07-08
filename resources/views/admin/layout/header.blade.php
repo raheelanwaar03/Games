@@ -120,16 +120,16 @@
                             <li><a href="{{ route('Admin.All.Rejected.Orders') }}">Rejected Orders</a></li>
                         </ul>
                     </li>
-                    {{-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-045-heart"></i>
-                            <span class="nav-text">Luck</span>
+                            <span class="nav-text">Deposit</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="{{ route('Admin.Add.Luck') }}">Add Details</a></li>
-                            <li><a href="{{ route('Admin.All.Luck') }}">All luck Items</a></li>
-                            <li><a href="{{ route('Admin.All.Investors') }}">All Investors</a></li>
+                            <li><a href="{{ route('Admin.All.Deposit') }}">All Deposit Requests</a></li>
+                            <li><a href="{{ route('Admin.Approved.Deposit') }}">Approved Deposit</a></li>
+                            <li><a href="{{ route('Admin.Rejected.Deposit') }}">Rejected Deposit</a></li>
                         </ul>
-                    </li> --}}
+                    </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-041-graph"></i>
                             <span class="nav-text">Games</span>

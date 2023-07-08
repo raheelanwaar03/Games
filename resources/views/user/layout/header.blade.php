@@ -50,7 +50,7 @@
             </a>
         </div>
         <div class="d-flex justify-content-end align-items-center mt-3 mb-2 gap-2">
-            <a href="#">
+            <a href="{{ route('User.Deposit') }}">
                 <img src="{{ asset('assets/img/plus.png') }}" width="25" alt="">
             </a>
             <h6 class="mb-0">${{ auth()->user()->balance }}</h6>
@@ -154,7 +154,6 @@
                     </section>
                 </div>
             </div>
-
         </div>
         @yield('cart')
     </section>

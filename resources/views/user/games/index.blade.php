@@ -1,5 +1,11 @@
 @extends('user.layout.app')
 
+@section('cart')
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="fw-500 mb-3">Free Games</h1>
+    </div>
+@endsection
+
 @section('content')
     <section class="pb-5">
         <div class="container pb-5">
