@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use App\Models\user\AddToCart;
 
 function totalPrice()
@@ -14,3 +15,11 @@ function totalPrice()
 
     return $totalPrice;
 }
+
+function totalUsers()
+{
+    $user = User::all();
+    $total_users = $user->count();
+    return $total_users;
+}
+
