@@ -22,7 +22,7 @@
                         </div>
                     </div>
                 </div>
-                 <div class="col-xl-3 col-xxl-3 col-sm-6">
+                <div class="col-xl-3 col-xxl-3 col-sm-6">
                     <div class="card invoice-card">
                         <div class="card-body d-flex">
                             <div>
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                 </div>
-                {{--<div class="col-xl-3 col-xxl-3 col-sm-6">
+                {{-- <div class="col-xl-3 col-xxl-3 col-sm-6">
                     <div class="card bg-info invoice-card">
                         <div class="card-body d-flex">
                             <div class="icon me-3">
@@ -77,7 +77,7 @@
                                     <div class="me-auto">
                                         <h4 class="card-title">Total Widthraw</h4>
                                         <div class="d-flex align-items-center">
-                                            <h2 class="fs-38 mb-0">@</h2>
+                                            <h2 class="fs-38 mb-0">{{ allWidthraw() }}</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -88,7 +88,7 @@
                                 <div class="card-body">
                                     <h4 class="card-title">Pending Widthraw</h4>
                                     <div class="d-flex align-items-center">
-                                        <h2 class="fs-38">@</h2>
+                                        <h2 class="fs-38">{{ pendingWidthraw() }}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                                 <div class="card-body">
                                     <h4 class="card-title mt-2">Approved Widthraw</h4>
                                     <div class="d-flex align-items-center mt-3 mb-2">
-                                        <h2 class="fs-38 mb-0 me-3">#</h2>
+                                        <h2 class="fs-38 mb-0 me-3">{{ approvedWidthraw() }}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -106,9 +106,9 @@
                         <div class="col-sm-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title mt-2">Todays Approved Widthraw</h4>
+                                    <h4 class="card-title mt-2">Rejected Widthraw</h4>
                                     <div class="d-flex align-items-center mt-3 mb-2">
-                                        <h2 class="fs-38 mb-0 me-3">#</h2>
+                                        <h2 class="fs-38 mb-0 me-3">{{ rejectedWidthraw() }}</h2>
                                     </div>
                                 </div>
                             </div>

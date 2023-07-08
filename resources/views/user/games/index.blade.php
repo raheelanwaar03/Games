@@ -10,33 +10,21 @@
     <section class="pb-5">
         <div class="container pb-5">
             <div class="row justify-content-center">
-                @forelse ($games as $game)
-                    <div class="col-md-4 text-center mt-3">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="{{ asset('images/' . $game->image) }}" height="290px" width="400px"
-                                alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-text text-black">{{ $game->title }}</h4>
-                                <p class="text-black">{{ $game->description }}</p>
-                            </div>
-                            <div class="card-footer">
-                                <form action="{{ route('User.Cart', ['id' => $game->id]) }}" method="POST">
-                                    @csrf
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <input type="number" name="qty" value="1" min="1" style="width: 40px;">
-                                        <button type="submit" class="btn btn-primary">Add
-                                            To
-                                            Cart</button>
-                                    </div>
-                                </form>
-                            </div>
+                <div class="col-md-4 text-center mt-3">
+                    <div class="card" style="width: 18rem;">
+                        <iframe class="card-img-top" width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                        </iframe>
+                        <div class="card-body">
+                            <h4 class="card-text text-black">test video</h4>
+                            <p class="text-black">test description</p>
                         </div>
                     </div>
+                </div>
                 @empty
-                <h3>No Game Added Yet</h3>
-                @endforelse
+                    <h3>No Game Added Yet</h3>
+                    @endforelse
+                </div>
             </div>
-        </div>
-        </div>
-    </section>
-@endsection
+            </div>
+        </section>
+    @endsection
