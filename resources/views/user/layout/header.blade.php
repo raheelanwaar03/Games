@@ -44,7 +44,8 @@
                 <i class="bi bi-gear"></i>
                 <span>Settings</span>
             </a>
-            <a href="{{ route('User.Add.Wallet') }}" class="single-nav">
+            <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight" class="single-nav">
                 <i class="bi bi-wallet2"></i>
                 <span>Wallet</span>
             </a>
@@ -68,7 +69,7 @@
                                 <i class="bi bi-arrow-left text-white"></i>
                             </a>
                             <p class="mb-0 text-white">Profile</p>
-                            <a href="edit-profile.html">
+                            <a href="#">
                                 <i class="bi bi-pencil-square text-white"></i>
                             </a>
                         </div>

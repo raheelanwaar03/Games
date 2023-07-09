@@ -396,6 +396,10 @@ section {
 .profile .profile-row .slider.round:before {
   border-radius: 50%;
 }
+.border-doted{
+border-style: dotted;
+
+}
 
 .edit-profile .camera {
   position: absolute;

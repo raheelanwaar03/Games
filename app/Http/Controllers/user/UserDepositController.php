@@ -19,7 +19,6 @@ class UserDepositController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'amount' => 'required',
             'trx_id' => 'required',
             'screen_shot' => 'required',
         ]);
@@ -31,16 +30,15 @@ class UserDepositController extends Controller
         $deposit = new UserDeposit();
         $deposit->user_id = auth()->user()->id;
         $deposit->user_name = auth()->user()->name;
-        $deposit->amount = $validated['amount'];
         $deposit->trx_id = $validated['trx_id'];
         $deposit->screen_shot = $imageName;
         $deposit->save();
 
-        $user_transcation = new UserTranscations();
-        $user_transcation->user_id = auth()->user()->id;
-        $user_transcation->amount = $validated['amount'];
-        $user_transcation->status = 'deposit';
-        $user_transcation->save();
+        // $user_transcation = new UserTranscations();
+        // $user_transcation->user_id = auth()->user()->id;
+        // $user_transcation->amount = $validated['amount'];
+        // $user_transcation->status = 'deposit';
+        // $user_transcation->save();
 
         return redirect()->back()->with('success', 'Your request has been submit. Admin will check and do his further procedure');
     }

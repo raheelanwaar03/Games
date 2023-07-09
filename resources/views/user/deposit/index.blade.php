@@ -29,15 +29,14 @@
             <form action="{{ route('User.Store.Deposit') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="input-box">
-                    <input type="text" name="amount" style="width: 100%" placeholder="Enter Amount " />
-                </div>
-                <div class="input-box">
                     <input type="text" name="trx_id" style="width: 100%" placeholder="Enter TrxId " />
                 </div>
-                <div class="input-box gap-1">
-                    <input type="file" name="screen_shot">
+                <div class="custom-file border-doted d-flex justify-content-center align-items-center pmd-custom-file text-center" style="width: 100%;height:15vh;">
+                    <input type="file" name="screen_shot" class="custom-file-input">
                 </div>
-                <button type="submit" class="gradient-btn-full">Submit</button>
+                <div class="mt-5">
+                    <button type="submit" class="gradient-btn-full">Confirm Recharge</button>
+                </div>
             </form>
         </div>
     </section>
