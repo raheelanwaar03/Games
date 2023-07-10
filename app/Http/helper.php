@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use App\Models\user\AddToCart;
+use App\Models\user\UserTranscations;
 use App\Models\user\WidthrawBalance;
 
 function totalPrice()
@@ -73,6 +74,18 @@ function rejectedWidthraw()
         $total_widthraw += $widthraw->amount;
     }
     return $total_widthraw;
+}
+
+function totalIncome()
+{
+    $incomes = UserTranscations::where('user_id',auth()->user()->id)->where('status','approved')->get();
+
+    $totalIncome = 0;
+    foreach($incomes as $income)
+    {
+        $totalIncome += $income->amount;
+    }
+    return $totalIncome;
 }
 
 

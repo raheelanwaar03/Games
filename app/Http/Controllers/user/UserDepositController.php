@@ -42,4 +42,12 @@ class UserDepositController extends Controller
 
         return redirect()->back()->with('success', 'Your request has been submit. Admin will check and do his further procedure');
     }
+
+    public function amount()
+    {
+        return view('user.deposit.amount');
+    }
+
+
+
 }

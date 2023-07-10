@@ -19,6 +19,7 @@ Route::name('User.')->prefix('User')->middleware('auth', 'user')->group(function
     Route::get('/Cart/Payment', [AddToCartController::class, 'cartPayment'])->name('Cart.Payment');
     Route::post('/Cart/Games/Bill', [AddToCartController::class, 'cartBill'])->name('Cart.Games.Bill');
     // Deposit Routes
+    Route::get('/Deposit/Amount',[UserDepositController::class,'amount'])->name('Deposit.Amount');
     Route::get('/Deposit',[UserDepositController::class,'index'])->name('Deposit');
     Route::post('/Store/Deposit',[UserDepositController::class,'store'])->name('Store.Deposit');
     // Widthraw Routes

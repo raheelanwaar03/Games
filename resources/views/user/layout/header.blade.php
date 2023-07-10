@@ -44,14 +44,14 @@
                 <i class="bi bi-gear"></i>
                 <span>Settings</span>
             </a>
-            <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                aria-controls="offcanvasRight" class="single-nav">
+            <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
+                class="single-nav">
                 <i class="bi bi-wallet2"></i>
                 <span>Wallet</span>
             </a>
         </div>
         <div class="d-flex justify-content-end align-items-center mt-3 mb-2 gap-2">
-            <a href="{{ route('User.Deposit') }}">
+            <a href="{{ route('User.Deposit.Amount') }}">
                 <img src="{{ asset('assets/img/plus.png') }}" width="25" alt="">
             </a>
             <h6 class="mb-0">${{ auth()->user()->balance }}</h6>
@@ -96,16 +96,20 @@
                         <div class="profile-card">
                             <div class="card-top d-flex justify-content-between">
                                 <div>
-                                    <p class="mb-1">My Balance</p>
+                                    <p class="mb-1">Avalibale Balance</p>
                                     <h3>${{ auth()->user()->balance }}</h3>
                                 </div>
-                                <div class="d-flex gap-2 align-items-center">
-                                    <a class="gradient-btn py-2 px-3 fs-6 fw-normal"
-                                        href="{{ route('User.Deposit') }}">Recharge</a>
-                                    <a class="outline-btn-small fs-6" href="{{ route('User.Widthraw') }}">Withdraw</a>
+                                <div>
+                                    <p>Income</p>
+                                    <h3>${{ totalIncome() }}</h3>
                                 </div>
                             </div>
                             <div class="card-bottom">
+                                <div class="d-flex gap-2 align-items-center">
+                                    <a class="gradient-btn py-2 px-3 fs-6 fw-normal"
+                                        href="{{ route('User.Deposit.Amount') }}">Recharge</a>
+                                    <a class="outline-btn-small fs-6" href="{{ route('User.Widthraw') }}">Withdraw</a>
+                                </div>
                             </div>
                         </div>
                         <div class="profile-card mt-4">
