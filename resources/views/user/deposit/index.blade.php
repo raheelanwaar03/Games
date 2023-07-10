@@ -24,15 +24,16 @@
                 readonly />
             <a onclick="copy()" class="ref-copy pr-4" style="border-radius:10px;"><i class="fa fa-copy"></i></a>
         </div>
+        <hr color="white">
 
         <div class="profile-card px-2 py-3 pb-5 mb-5 rounded-4">
             <form action="{{ route('User.Store.Deposit') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <p>Payment Screenshot</p>
+                <p class="text-white">Payment Screenshot</p>
                 <div class="custom-file border-doted d-flex justify-content-center align-items-center pmd-custom-file text-center"
                     style="width: 100%;height:15vh;">
                     <input type="file" name="screen_shot" id="uploadBtn" style="display: none;">
-                    <label for="uploadBtn" class="bg-primary btn btn-primary">Upload Now</label>
+                    <label for="uploadBtn" class="bg-primary btn btn-primary" style="border-radius:15px">Upload Now</label>
                 </div>
                 <div class="mt-5">
                     <button type="submit" class="gradient-btn-full">Confirm Recharge</button>
