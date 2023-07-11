@@ -12,8 +12,8 @@
             <a href="#" onclick="window.history.back()">
                 <i class="bi bi-arrow-left text-white"></i>
             </a>
-            <p class="mb-0 text-white">Send the Total payment on given wallet address and enter screenshot with TrxId below
-                to earn with us.</p>
+            <p class="mb-0 text-white">Send the amount on our given wallet which you want to add in your wallet address and
+                enter screenshot with TrxId below.</p>
             <span> </span>
         </div>
         <div class="text-center mb-3">
@@ -24,21 +24,24 @@
                 readonly />
             <a onclick="copy()" class="ref-copy pr-4" style="border-radius:10px;"><i class="fa fa-copy"></i></a>
         </div>
-
+        <hr color="white">
         <div class="d-flex justify-content-center py-4">
-            <h5>Total Amount: <span class="text-white">${{ totalPrice() }}</span></h5>
+            <h5>Total Amount To Pay: <span class="text-white">${{ totalPrice() }}</span></h5>
         </div>
+        <hr color="white">
 
         <div class="profile-card px-2 py-3 pb-5 mb-5 rounded-4">
             <form action="{{ route('User.Cart.Games.Bill') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="input-box">
-                    <input type="text" name="trx_id" style="width: 100%" placeholder="Enter TrxId " />
+                <p class="text-white">Payment Screenshot</p>
+                <div class="custom-file border-doted d-flex justify-content-center align-items-center pmd-custom-file text-center"
+                    style="width: 100%;height:15vh;">
+                    <input type="file" name="screen_shot" id="uploadBtn" style="display: none;">
+                    <label for="uploadBtn" class="bg-primary btn btn-primary" style="border-radius:15px">Upload Now</label>
                 </div>
-                <div class="input-box gap-1">
-                    <input type="file" name="trx_image">
+                <div class="mt-5">
+                    <button type="submit" class="gradient-btn-full">Confirm Recharge</button>
                 </div>
-                <button type="submit" class="gradient-btn-full">Submit</button>
             </form>
         </div>
     </section>
@@ -55,3 +58,51 @@
         }
     </script>
 @endsection
+{{--
+<section class="profile deposit px-3 pb-5">
+    <div class="d-flex justify-content-between align-items-center py-4">
+        <a href="#" onclick="window.history.back()">
+            <i class="bi bi-arrow-left text-white"></i>
+        </a>
+        <p class="mb-0 text-white">Send the Total payment on given wallet address and enter screenshot with TrxId below
+            to earn with us.</p>
+        <span> </span>
+    </div>
+    <div class="text-center mb-3">
+        <img src="{{ asset('assets/img/Qr.jpeg') }}" height="200px" width="200px" alt="Qr">
+    </div>
+    <div class="input-box">
+        <input type="text" value="0xb99826f0a1c4b3e42dddfe70c57d2e9e6a944c6f" style="width: 100%" id="myInput"
+            readonly />
+        <a onclick="copy()" class="ref-copy pr-4" style="border-radius:10px;"><i class="fa fa-copy"></i></a>
+    </div>
+
+    <div class="d-flex justify-content-center py-4">
+        <h5>Total Amount: <span class="text-white">${{ totalPrice() }}</span></h5>
+    </div>
+
+    <div class="profile-card px-2 py-3 pb-5 mb-5 rounded-4">
+        <form action="{{ route('User.Cart.Games.Bill') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="input-box">
+                <input type="text" name="trx_id" style="width: 100%" placeholder="Enter TrxId " />
+            </div>
+            <div class="input-box gap-1">
+                <input type="file" name="trx_image">
+            </div>
+            <button type="submit" class="gradient-btn-full">Submit</button>
+        </form>
+    </div>
+</section>
+
+<script>
+    function copy() {
+        // Get the text field
+        var copyText = document.getElementById("myInput");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(copyText.value);
+        // Alert the copied text
+        alert("Copied the text: " + copyText.value);
+    }
+</script> --}}

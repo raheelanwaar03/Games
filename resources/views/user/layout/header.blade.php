@@ -16,6 +16,52 @@
     <title>{{ env('APP_NAME') }}</title>
     {{-- font awsome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+
+    <style>
+        /* Style the input field */
+        .input-field {
+            display: inline-block;
+            position: relative;
+        }
+
+        /* Style the button-like options */
+        .input-field input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+        }
+
+        .input-field input[type="text"]:focus {
+            outline: none;
+        }
+
+        /* Style the buttons within the datalist */
+        .input-field datalist {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+            display: none;
+        }
+
+        .input-field datalist option {
+            display: block;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .input-field input[type="text"]:focus+datalist {
+            display: block;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -34,7 +80,7 @@
             </a>
             <a href="{{ route('User.See.All.Transcations') }}" class="single-nav">
                 <i class="bi bi-cash"></i>
-                <span>Transcations</span>
+                <span>Income</span>
             </a>
             <a href="{{ route('User.Games') }}" class="single-nav">
                 <i class="bi bi-play-circle"></i>

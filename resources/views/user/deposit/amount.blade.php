@@ -24,18 +24,21 @@
             <form action="{{ route('User.Deposit') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="d-flex justify-content-around align-items-center">
-                    <p class="text-white">Recharge Amount</p>
+                    <p class="text-white">Recharge Type</p>
                     <div class="input-box">
-                        <select name="amount">
-                            <option value="30">30$</option>
-                            <option value="100">100$</option>
-                            <option value="1000">1000$</option>
-                        </select>
+                        <input type="text" name="type" value="TRC20" readonly>
                     </div>
-                    {{-- <div class="form-group" style="width: 100%;">
-                        <input type="number" class="input-box" style="border: none;color:white;" name="amount" id="amount" placeholder="Enter Recharge amount">
-                        <label for="amount" aria-valuenow="30$" class="btn btn-primary">30$</label>
-                    </div> --}}
+                </div>
+                <div class="d-flex justify-content-around align-items-center">
+                    <p class="text-white">Recharge Amount</p>
+                    <div class="input-field">
+                        <input type="text" name="amount" class="input-box text-white" list="amounts" placeholder="Select or type...">
+                        <datalist id="amounts">
+                          <option value="30$">30$</option>
+                          <option value="100$">100$</option>
+                          <option value="1000$">1000$</option>
+                        </datalist>
+                      </div>
                 </div>
                 <div class="w-100">
                     <hr style="color: white;">
