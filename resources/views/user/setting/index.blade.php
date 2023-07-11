@@ -6,7 +6,7 @@
             <a href="#" onclick="window.history.back()">
                 <i class="bi bi-arrow-left text-white"></i>
             </a>
-            <p class="mb-0 text-white">Profile Settings</p>
+            <h3 class="mb-0 text-white">Profile Settings</h3>
             <span>
 
             </span>
