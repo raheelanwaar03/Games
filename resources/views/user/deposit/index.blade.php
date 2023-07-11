@@ -27,7 +27,7 @@
         <hr color="white">
 
         <div class="profile-card px-2 py-3 pb-5 mb-5 rounded-4">
-            <form action="{{ route('User.Store.Deposit') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('User.Store.Deposit',['amount'=>$amount]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <p class="text-white">Payment Screenshot</p>
                 <div class="custom-file border-doted d-flex justify-content-center align-items-center pmd-custom-file text-center"

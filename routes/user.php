@@ -20,8 +20,8 @@ Route::name('User.')->prefix('User')->middleware('auth', 'user')->group(function
     Route::post('/Cart/Games/Bill', [AddToCartController::class, 'cartBill'])->name('Cart.Games.Bill');
     // Deposit Routes
     Route::get('/Deposit/Amount',[UserDepositController::class,'amount'])->name('Deposit.Amount');
-    Route::get('/Deposit',[UserDepositController::class,'index'])->name('Deposit');
-    Route::post('/Store/Deposit',[UserDepositController::class,'store'])->name('Store.Deposit');
+    Route::post('/Deposit',[UserDepositController::class,'index'])->name('Deposit');
+    Route::post('/Store/Deposit/{amount}',[UserDepositController::class,'store'])->name('Store.Deposit');
     // Widthraw Routes
     Route::get('Widthraw/Balance',[UserWidthrawController::class,'widthraw'])->name('Widthraw');
     Route::get('See/All/Transcations',[UserWidthrawController::class,'seeAll'])->name('See.All.Transcations');

@@ -11,17 +11,18 @@ use Illuminate\Http\Request;
 class UserDepositController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('user.deposit.index');
+        $amount = $request->amount;
+        return view('user.deposit.index',compact('amount'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request,$amount)
     {
         $validated = $request->validate([
-            'trx_id' => 'required',
             'screen_shot' => 'required',
         ]);
+
 
         $image = $validated['screen_shot'];
         $imageName = rand() . '.' . $image->getClientOriginalExtension();
@@ -30,17 +31,18 @@ class UserDepositController extends Controller
         $deposit = new UserDeposit();
         $deposit->user_id = auth()->user()->id;
         $deposit->user_name = auth()->user()->name;
-        $deposit->trx_id = $validated['trx_id'];
+        $deposit->amount = $amount;
         $deposit->screen_shot = $imageName;
         $deposit->save();
 
-        // $user_transcation = new UserTranscations();
-        // $user_transcation->user_id = auth()->user()->id;
-        // $user_transcation->amount = $validated['amount'];
-        // $user_transcation->status = 'deposit';
-        // $user_transcation->save();
+        $user_transcation = new UserTranscations();
+        $user_transcation->user_id = auth()->user()->id;
+        $user_transcation->amount = $amount;
+        $user_transcation->type = 'deposit';
+        $user_transcation->status = 'pending';
+        $user_transcation->save();
 
-        return redirect()->back()->with('success', 'Your request has been submit. Admin will check and do his further procedure');
+        return redirect()->route('User.Dashboard')->with('success', 'Your request has been submit. Admin will check and do his further procedure');
     }
 
     public function amount()

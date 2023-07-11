@@ -7,13 +7,9 @@
             <a href="#" onclick="window.history.back()">
                 <i class="bi bi-arrow-left"></i>
             </a>
-            <p class="mb-0 fw-500">Invite Friends</p>
-            <a href="edit-profile.html">
-                <i class="bi bi-gear"></i>
-            </a>
         </div>
         <div class="terms-card flex-grow-1">
-            <h1 class="text-center pt-4">Earn Commission
+            <h1 class="text-center pt-4">Earn commission on
                 inviting your friends</h1>
             <div class="d-flex justify-content-center my-5 py-5">
                 <img src="{{ asset('assets/img/invite.png') }}" class="img-fluid" height="200" width="200"
@@ -23,7 +19,7 @@
 
         <div class="form-group">
             <input type="text" class="form-control bg-transparent text-white"
-                value="{{ route('register', ['referal' => auth()->user()->name]) }}" id="myInput" readonly>
+                value="{{ route('register', ['referal' => Auth::user()->email]) }}" id="myInput" readonly>
         </div>
         <div class="btns mt-4 d-flex justify-content-center gap-4">
             <a onclick="copy()" class="gradient-btn-full">Copy Invitation</a>

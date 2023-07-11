@@ -21,7 +21,7 @@
         <hr color="white">
 
         <div class="profile-card px-2 py-3 pb-5 mb-5 rounded-4">
-            <form action="{{ route('User.Store.Deposit') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('User.Deposit') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="d-flex justify-content-around align-items-center">
                     <p class="text-white">Recharge Amount</p>
@@ -41,21 +41,9 @@
                     <hr style="color: white;">
                 </div>
                 <div class="mt-5">
-                    <button type="submit" class="gradient-btn-full">Confirm Recharge</button>
+                    <button type="submit" class="gradient-btn-full">Proceed</button>
                 </div>
             </form>
         </div>
     </section>
-
-    <script>
-        function copy() {
-            // Get the text field
-            var copyText = document.getElementById("myInput");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999);
-            navigator.clipboard.writeText(copyText.value);
-            // Alert the copied text
-            alert("Copied the text: " + copyText.value);
-        }
-    </script>
 @endsection
