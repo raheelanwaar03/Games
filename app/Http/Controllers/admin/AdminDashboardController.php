@@ -59,7 +59,8 @@ class AdminDashboardController extends Controller
                 $user_transcation = new UserTranscations();
                 $user_transcation->user_id = $user_id;
                 $user_transcation->amount = $game_commission;
-                $user_transcation->status = 'daily profit';
+                $user_transcation->type = 'daily profit';
+                $user_transcation->status = 'given';
                 $user->save();
             }
         }
@@ -90,6 +91,14 @@ class AdminDashboardController extends Controller
         $deposit = UserDeposit::find($id);
         $deposit->status = 'approved';
         $deposit->save();
+
+        $user_transcation = new UserTranscations();
+        $user_transcation->user_id = $deposit->user_id;
+        $user_transcation->amount = $deposit->amount;
+        $user_transcation->type = 'deposit';
+        $user_transcation->status = 'approved';
+        $user_transcation->save();
+
         return redirect()->back()->with('success','User deposit approved successfully');
 
     }
@@ -99,6 +108,14 @@ class AdminDashboardController extends Controller
         $deposit = UserDeposit::find($id);
         $deposit->status = 'rejected';
         $deposit->save();
+
+        $user_transcation = new UserTranscations();
+        $user_transcation->user_id = $deposit->user_id;
+        $user_transcation->amount = $deposit->amount;
+        $user_transcation->type = 'deposit';
+        $user_transcation->status = 'rejected';
+        $user_transcation->save();
+
         return redirect()->back()->with('success','User deposit rejected successfully');
     }
 

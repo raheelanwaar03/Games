@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Games;
 use App\Models\user\AddToCart;
+use App\Models\user\UserTranscations;
 use App\Models\user\GamesPrice;
 use Illuminate\Http\Request;
 
@@ -69,9 +70,16 @@ class AddToCartController extends Controller
             $ordergame->commission = $game->commission;
             $ordergame->qty = $game->qty;
             $ordergame->total_price = $game->total_price;
-            $ordergame->trx_id = $request->trx_id;
             $ordergame->trx_image = $imageName;
             $ordergame->save();
+
+            $user_transcation = new UserTranscations();
+            $user_transcation->user_id = auth()->user()->id;
+            $user_transcation->amount = $game->total_price;
+            $user_transcation->type = 'invest';
+            $user_transcation->status = 'pending';
+            $user_transcation->save();
+
 
             $cart_id = $game->id;
             $cart = AddToCart::find($cart_id);
@@ -80,7 +88,7 @@ class AddToCartController extends Controller
         }
 
 
-        return redirect()->back()->with('success','You have successfully submit your request. Admin will check and then approve it.');
+        return redirect()->route('User.Dashboard')->with('success','You have successfully submit your request. Admin will check and then approve it.');
     }
 
 

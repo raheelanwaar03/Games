@@ -12,7 +12,11 @@
             <a href="#" onclick="window.history.back()">
                 <i class="bi bi-arrow-left text-white"></i>
             </a>
-            <p class="mb-0 text-white">Enter the amount and your secret 5 digits pin to start widthraw process.</p>
+            <p class="mb-0 text-white">1. Enter the amount and your secret 5 digits pin to start widthraw process.
+                <br>
+                <br>
+                2. If you need to modify,please contact customer service.
+            </p>
             <span> </span>
         </div>
         <div class="profile-card px-2 py-3 pb-5 mb-5 rounded-4">

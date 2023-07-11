@@ -40,6 +40,7 @@
                 @empty
                     <h3>No Game Added Yet!</h3>
                 @endforelse
+                {{ $games->withQueryString()->links('pagination::bootstrap-5') }}
             </div>
         </div>
         </div>

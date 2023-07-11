@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\user\GamesPrice;
+use App\Models\user\UserTranscations;
 use Illuminate\Http\Request;
 
 class GameOrdersController extends Controller
@@ -43,6 +44,13 @@ class GameOrdersController extends Controller
         $game->status = 'approved';
         $game->save();
 
+        $user_transcation = new UserTranscations();
+        $user_transcation->user_id = $game->user_id;
+        $user_transcation->amount = $game->amount;
+        $user_transcation->type = 'invest';
+        $user_transcation->status = 'approved';
+        $user_transcation->save();
+
         return redirect()->back()->with('success', 'User Game Order Approved Successfully');
     }
 
@@ -51,6 +59,14 @@ class GameOrdersController extends Controller
         $game = GamesPrice::find($id);
         $game->status = 'rejected';
         $game->save();
+
+        $user_transcation = new UserTranscations();
+        $user_transcation->user_id = $game->user_id;
+        $user_transcation->amount = $game->amount;
+        $user_transcation->type = 'invest';
+        $user_transcation->status = 'approved';
+        $user_transcation->save();
+
         return redirect()->back()->with('error', 'User Game Order Rejected Successfully');
     }
 }

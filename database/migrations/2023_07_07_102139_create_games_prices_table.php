@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('qty');
             $table->string('total_price');
             $table->string('commission');
-            $table->string('trx_id');
             $table->string('trx_image');
             $table->string('status')->default('pending');
             $table->timestamps();

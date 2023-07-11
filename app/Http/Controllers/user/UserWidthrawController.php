@@ -14,7 +14,7 @@ class UserWidthrawController extends Controller
     public function widthraw()
     {
         $wallet = UserWallet::where('user_id', auth()->user()->id)->first();
-        if($wallet = '')
+        if($wallet == null)
         {
             return redirect()->route('User.Add.Wallet')->with('error','Please add your wallet address first');
         }
@@ -61,7 +61,8 @@ class UserWidthrawController extends Controller
         $user_transcation = new UserTranscations();
         $user_transcation->user_id = auth()->user()->id;
         $user_transcation->amount = $validated['amount'];
-        $user_transcation->status = 'widthraw';
+        $user_transcation->type = 'widthraw';
+        $user_transcation->status = 'pending';
         $user_transcation->save();
 
         return redirect()->back()->with('success', 'Your Widthraw process activated');

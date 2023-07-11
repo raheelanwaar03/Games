@@ -115,7 +115,7 @@
                                 <i class="bi bi-arrow-left text-white"></i>
                             </a>
                             <p class="mb-0 text-white">Profile</p>
-                            <a href="#">
+                            <a href="{{ route('User.Setting') }}">
                                 <i class="bi bi-pencil-square text-white"></i>
                             </a>
                         </div>
@@ -175,10 +175,10 @@
                             </div>
                             <i class="bi bi-chevron-right"></i>
                         </a>
-                        <a href="messages.html" class="profile-row mt-3">
+                        <a href="{{ route('User.Account.Report') }}" class="profile-row mt-3">
                             <div class="d-flex align-items-center gap-2">
                                 <img src="{{ asset('assets/img/setpassword.png') }}" alt="">
-                                <p class="fw-500 mb-0">Account Change Report</p>
+                                <p class="fw-500 mb-0">Account Report</p>
                             </div>
                             <i class="bi bi-chevron-right"></i>
                         </a>

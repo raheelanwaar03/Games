@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\admin\Games;
 use App\Models\User;
 use App\Models\user\AddToCart;
+use App\Models\user\UserTranscations;
 use App\Models\user\UserWallet;
 use Illuminate\Http\Request;
 
@@ -13,14 +14,14 @@ class UserDashboardController extends Controller
 {
     public function index()
     {
-        $games = Games::get();
+        $games = Games::paginate(9);
         $cart = AddToCart::where('user_id',auth()->user()->id)->first();
         return view('user.dashboard',compact('games','cart'));
     }
 
     public function games()
     {
-        $games = Games::get();
+        $games = Games::paginate(9);
         return view('user.games.index',compact('games'));
     }
 
@@ -68,5 +69,10 @@ class UserDashboardController extends Controller
         return view('user.setting.index',compact('user'));
     }
 
+    public function report()
+    {
+        $user_transcations = UserTranscations::get();
+        return view('user.report',compact('user_transcations'));
+    }
 
 }

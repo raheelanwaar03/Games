@@ -30,5 +30,6 @@ Route::name('User.')->prefix('User')->middleware('auth', 'user')->group(function
     Route::get('Add/Wallet',[UserDashboardController::class,'addWallet'])->name('Add.Wallet');
     Route::post('Store/Wallet',[UserDashboardController::class,'storeWallet'])->name('Store.Wallet');
     Route::get('Setting',[UserDashboardController::class,'setting'])->name('Setting');
+    Route::get('Account/Report',[UserDashboardController::class,'report'])->name('Account.Report');
 
 });
