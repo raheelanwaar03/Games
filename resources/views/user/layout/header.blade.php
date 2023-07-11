@@ -151,20 +151,10 @@
                                 </div>
                             </div>
                             <div class="card-bottom">
-                                <div class="d-flex gap-2 align-items-center">
+                                <div class="d-flex gap-4 align-items-center">
                                     <a class="gradient-btn py-2 px-3 fs-6 fw-normal"
                                         href="{{ route('User.Deposit.Amount') }}">Recharge</a>
                                     <a class="outline-btn-small fs-6" href="{{ route('User.Widthraw') }}">Withdraw</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="profile-card mt-4">
-                            <div class="card-top d-flex justify-content-between">
-                                <div>
-                                    <p class="mb-1">Membership Level</p>
-                                </div>
-                                <div class="d-flex gap-2 align-items-center">
-                                    <a class="gradient-btn py-2 px-3 fs-6 fw-normal" href="#">More</a>
                                 </div>
                             </div>
                         </div>
