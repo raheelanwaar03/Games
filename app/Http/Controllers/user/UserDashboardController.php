@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Models\admin\Games;
+use App\Models\User;
 use App\Models\user\AddToCart;
 use App\Models\user\UserWallet;
 use Illuminate\Http\Request;
@@ -61,6 +62,11 @@ class UserDashboardController extends Controller
         return view('user.refer.index');
     }
 
+    public function setting()
+    {
+        $user = User::where('id',auth()->user()->id)->first();
+        return view('user.setting.index',compact('user'));
+    }
 
 
 }
