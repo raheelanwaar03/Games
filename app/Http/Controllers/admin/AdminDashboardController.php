@@ -65,7 +65,7 @@ class AdminDashboardController extends Controller
             }
         }
 
-        return redirect()->back()->with('success', 'All user got thier commission on thier approved games');
+        return redirect()->back()->with('success', 'All users got thier commission on thier approved games');
     }
 
     public function allDeposit()
@@ -92,7 +92,7 @@ class AdminDashboardController extends Controller
         $deposit->status = 'approved';
         $deposit->save();
 
-        $user_transcation = new UserTranscations();
+        $user_transcation = UserTranscations::where('user_id',$deposit->id)->where('amount',$deposit->amount)->first();
         $user_transcation->user_id = $deposit->user_id;
         $user_transcation->amount = $deposit->amount;
         $user_transcation->type = 'deposit';
@@ -109,7 +109,7 @@ class AdminDashboardController extends Controller
         $deposit->status = 'rejected';
         $deposit->save();
 
-        $user_transcation = new UserTranscations();
+        $user_transcation = UserTranscations::where('user_id',$deposit->id)->where('amount',$deposit->amount)->first();
         $user_transcation->user_id = $deposit->user_id;
         $user_transcation->amount = $deposit->amount;
         $user_transcation->type = 'deposit';

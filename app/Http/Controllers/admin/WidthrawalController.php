@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\user\UserTranscations;
 use App\Models\user\WidthrawBalance;
 use Illuminate\Http\Request;
 
@@ -31,6 +32,14 @@ class WidthrawalController extends Controller
         $widthraw = widthrawBalance::find($id);
         $widthraw->status = 'approved';
         $widthraw->save();
+
+        $user_transcation = UserTranscations::where('user_id',$widthraw->user_id)->where('amount',$widthraw->amount)->first();
+        $user_transcation->user_id = $widthraw->user_id;
+        $user_transcation->amount = $widthraw->amount;
+        $user_transcation->type = 'invest';
+        $user_transcation->status = 'approved';
+        $user_transcation->save();
+
         return redirect()->back()->with('success','User Widthraw approved successfully');
     }
 

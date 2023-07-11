@@ -44,7 +44,7 @@ class GameOrdersController extends Controller
         $game->status = 'approved';
         $game->save();
 
-        $user_transcation = new UserTranscations();
+        $user_transcation = UserTranscations::where('user_id',$game->user_id)->where('amount',$game->amount)->first();
         $user_transcation->user_id = $game->user_id;
         $user_transcation->amount = $game->amount;
         $user_transcation->type = 'invest';
@@ -60,7 +60,7 @@ class GameOrdersController extends Controller
         $game->status = 'rejected';
         $game->save();
 
-        $user_transcation = new UserTranscations();
+        $user_transcation = UserTranscations::where('user_id',$game->user_id)->where('amount',$game->amount)->first();
         $user_transcation->user_id = $game->user_id;
         $user_transcation->amount = $game->amount;
         $user_transcation->type = 'invest';
