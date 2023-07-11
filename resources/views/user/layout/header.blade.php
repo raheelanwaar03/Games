@@ -86,7 +86,7 @@
                 <i class="bi bi-play-circle"></i>
                 <span>Games</span>
             </a>
-            <a href="{{ route('User.Setting') }}" class="single-nav">
+            <a href="{{ route('User.Setting.Links') }}" class="single-nav">
                 <i class="bi bi-gear"></i>
                 <span>Settings</span>
             </a>

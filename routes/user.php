@@ -26,10 +26,16 @@ Route::name('User.')->prefix('User')->middleware('auth', 'user')->group(function
     Route::get('Widthraw/Balance',[UserWidthrawController::class,'widthraw'])->name('Widthraw');
     Route::get('See/All/Transcations',[UserWidthrawController::class,'seeAll'])->name('See.All.Transcations');
     Route::post('Store/Widthraw',[UserWidthrawController::class,'storeWidthraw'])->name('Store.Widthraw');
+    // change wallet address
+    Route::get('Modify/Fund/Password',[UserWidthrawController::class,'fundPassword'])->name('Fund.Password');
+    Route::post('Update/Fund/Password',[UserWidthrawController::class,'updateFundPassword'])->name('Update.Fund.Password');
+    Route::get('Change/Wallet/Address',[UserWidthrawController::class,'changeWallet'])->name('Change.Wallet.Address');
+    Route::post('Update/Wallet/Address',[UserWidthrawController::class,'updateWallet'])->name('Update.Wallet.Address');
     // add Wallet
     Route::get('Add/Wallet',[UserDashboardController::class,'addWallet'])->name('Add.Wallet');
     Route::post('Store/Wallet',[UserDashboardController::class,'storeWallet'])->name('Store.Wallet');
-    Route::get('Setting',[UserDashboardController::class,'setting'])->name('Setting');
     Route::get('Account/Report',[UserDashboardController::class,'report'])->name('Account.Report');
+    Route::get('Setting/Links',[UserDashboardController::class,'links'])->name('Setting.Links');
+    Route::get('Setting',[UserDashboardController::class,'setting'])->name('Setting');
 
 });

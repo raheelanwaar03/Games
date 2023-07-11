@@ -54,7 +54,7 @@ class UserDashboardController extends Controller
         $wallet->pin = $validated['pin'];
         $wallet->save();
 
-        return redirect()->back()->with('success','Your have added wallet address successfully');
+        return redirect()->route('User.Widthraw')->with('success','Your have added wallet address successfully');
 
     }
 
@@ -74,5 +74,11 @@ class UserDashboardController extends Controller
         $user_transcations = UserTranscations::get();
         return view('user.report',compact('user_transcations'));
     }
+
+    public function links()
+    {
+        return view('user.setting.links');
+    }
+
 
 }

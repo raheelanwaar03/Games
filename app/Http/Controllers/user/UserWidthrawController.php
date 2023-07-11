@@ -14,9 +14,8 @@ class UserWidthrawController extends Controller
     public function widthraw()
     {
         $wallet = UserWallet::where('user_id', auth()->user()->id)->first();
-        if($wallet == null)
-        {
-            return redirect()->route('User.Add.Wallet')->with('error','Please add your wallet address first');
+        if ($wallet == null) {
+            return redirect()->route('User.Add.Wallet')->with('error', 'Please add your wallet address first');
         }
         return view('user.widthraw.index', compact('wallet'));
     }
@@ -52,7 +51,7 @@ class UserWidthrawController extends Controller
         $userWidthraw->save();
 
         // dedecting amount from user balance
-        $user = User::where('id',$wallet->user_id)->first();
+        $user = User::where('id', $wallet->user_id)->first();
         $user->balance -= $validated['amount'];
         $user->save();
 
@@ -70,9 +69,62 @@ class UserWidthrawController extends Controller
 
     public function seeAll()
     {
-        $user_transcations = UserTranscations::where('user_id',auth()->user()->id)->get();
-        return view('user.widthraw.all',compact('user_transcations'));
+        $user_transcations = UserTranscations::where('user_id', auth()->user()->id)->get();
+        return view('user.widthraw.all', compact('user_transcations'));
     }
 
 
+    public function fundPassword()
+    {
+        $wallet = UserWallet::where('user_id', auth()->user()->id)->first();
+        if ($wallet == null) {
+            return redirect()->route('User.Add.Wallet')->with('error', 'Please add your wallet address first');
+        }
+        return view('user.setting.fund');
+    }
+
+    public function updateFundPassword(Request $request)
+    {
+        $validated = $request->validate([
+            'pin' => ['required', 'max:5'],
+            'newPin' => ['required', 'max:5'],
+            'confirmPin' => ['required', 'max:5'],
+        ]);
+
+        $wallet = UserWallet::where('user_id', auth()->user()->id)->first();
+        $pin = $wallet->pin;
+
+        if ($pin != $validated['pin']) {
+            return redirect()->back()->with('error', 'Your new password is not match with old password');
+        }
+
+        $newPin = $validated['newPin'];
+        $confirmPin = $validated['confirmPin'];
+
+        if ($newPin != $confirmPin) {
+            return redirect()->back()->with('error', 'Your new password is not matched');
+        }
+
+        $wallet->pin = $newPin;
+        $wallet->save();
+
+        return redirect()->route('User.Setting.Links')->with('success', 'Your fund password changed successfully');
+    }
+
+    public function changeWallet()
+    {
+        $wallet = UserWallet::where('user_id', auth()->user()->id)->first();
+        if ($wallet == null) {
+            return redirect()->route('User.Add.Wallet')->with('error', 'Please add your wallet address first');
+        }
+        return view('user.setting.wallet', compact('wallet'));
+    }
+
+    public function updateWallet(Request $request)
+    {
+        $wallet = UserWallet::where('user_id', auth()->user()->id)->first();
+        $wallet->wallet_address = $request->wallet_address;
+        $wallet->save();
+        return redirect()->route('User.Setting.Links')->with('success', 'Your wallet address updated successfully');
+    }
 }
