@@ -16,9 +16,14 @@
                     widthraw</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#daily profit" type="button"
-                    role="tab" aria-controls="pills-profile" aria-selected="false"><i
+                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#daily profit"
+                    type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><i
                         class="bi bi-circle-fill live"></i> Daily Profit</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#rebate"
+                    type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><i
+                        class="bi bi-circle-fill live"></i> Rebate</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#deposit"
