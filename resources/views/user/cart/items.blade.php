@@ -2,7 +2,7 @@
 
 @section('cart')
     <div class="d-flex justify-content-between align-items-center">
-        <h1 class="fw-500 mb-3">Cart Items</h1>
+        <h1 class="fw-500 mb-3">Your Selected Games</h1>
     </div>
 @endsection
 
@@ -54,7 +54,7 @@
                             Total price for these Games : {{ totalPrice() }}
                         </div>
                         <div class="">
-                            <a href="{{ route('User.Cart.Payment') }}" class="btn btn-sm btn-primary">Buy Now</a>
+                            <a href="{{ route('User.Cart.Payment') }}" class="btn btn-sm btn-primary">Pay Now</a>
                         </div>
                     </div>
                 </div>

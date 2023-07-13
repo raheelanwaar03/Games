@@ -36,7 +36,7 @@ class AddToCartController extends Controller
         $cart->total_price = $total_price;
         $cart->commission = $game_commission;
         $cart->save();
-        return redirect()->back()->with('success', 'Game Added To Cart Successfuly!');
+        return redirect()->route('User.Cart');
     }
 
     public function items()
@@ -54,13 +54,12 @@ class AddToCartController extends Controller
     {
 
         $image = $request->trx_image;
-        $imageName = rand(111111,9999999) .'.'. $image->getClientOriginalExtension();
-        $image->move(public_path('images'),$imageName);
+        $imageName = rand(111111, 9999999) . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('images'), $imageName);
 
-        $cart = AddToCart::where('user_id',auth()->user()->id)->get();
+        $cart = AddToCart::where('user_id', auth()->user()->id)->get();
 
-        foreach ($cart as $game)
-        {
+        foreach ($cart as $game) {
             $ordergame = new GamesPrice();
             $ordergame->user_id = auth()->user()->id;
             $ordergame->game_id = $game->game_id;
@@ -84,12 +83,9 @@ class AddToCartController extends Controller
             $cart_id = $game->id;
             $cart = AddToCart::find($cart_id);
             $cart->delete();
-
         }
 
 
-        return redirect()->route('User.Dashboard')->with('success','You have successfully submit your request. Admin will check and then approve it.');
+        return redirect()->route('User.Dashboard')->with('success', 'You have successfully submit your request. Admin will check and then approve it.');
     }
-
-
 }

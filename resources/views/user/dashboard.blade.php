@@ -27,11 +27,11 @@
                                 <form action="{{ route('User.Cart', ['id' => $game->id]) }}" method="POST">
                                     @csrf
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <input type="number" name="qty" value="1" min="1"
-                                            style="width: 40px;">
-                                        <button type="submit" class="btn btn-primary">Add
-                                            To
-                                            Cart</button>
+                                        <i class="fa fa-minus" onclick="updateQuantity('minus')"></i>
+                                        <input name="qty" id="quantity" type="number" min="1"
+                                            style="width: 40px;" value="1">
+                                        <i class="fa fa-plus" onclick="updateQuantity('plus')"></i>
+                                        <button type="submit" class="btn btn-primary">Buy Now</button>
                                     </div>
                                 </form>
                             </div>
