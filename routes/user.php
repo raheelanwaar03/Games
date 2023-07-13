@@ -37,5 +37,7 @@ Route::name('User.')->prefix('User')->middleware('auth', 'user')->group(function
     Route::get('Account/Report',[UserDashboardController::class,'report'])->name('Account.Report');
     Route::get('Setting/Links',[UserDashboardController::class,'links'])->name('Setting.Links');
     Route::get('Setting',[UserDashboardController::class,'setting'])->name('Setting');
+    // referal friends
+    Route::get('Referal/Friends',[UserDashboardController::class,'referals'])->name('Referals');
 
 });

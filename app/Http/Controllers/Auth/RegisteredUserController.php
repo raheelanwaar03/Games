@@ -51,13 +51,12 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        $otp = OtpVerfication::create([
-            'user_id' => $user->id,
-            'otp' => rand(10000, 99999),
-            'expires_at' => Carbon::now()->addSeconds(90),
-        ]);
-
-        Mail::to($user->email)->send(new VerifyEmail($otp));
+        // $otp = OtpVerfication::create([
+        //     'user_id' => $user->id,
+        //     'otp' => rand(10000, 99999),
+        //     'expires_at' => Carbon::now()->addSeconds(90),
+        // ]);
+        // Mail::to($user->email)->send(new VerifyEmail($otp));
 
 
         return redirect(RouteServiceProvider::HOME);

@@ -20,15 +20,15 @@ class AdminDashboardController extends Controller
     public function editUser($id)
     {
         $user = User::find($id);
-        return view('admin.user.edit',compact('user'));
+        return view('admin.user.edit', compact('user'));
     }
 
-    public function updateUser(Request $request,$id)
+    public function updateUser(Request $request, $id)
     {
         $user = User::find($id);
         $user->balance += $request->balance;
         $user->save();
-        return redirect()->back()->with('success','Balance added to user account successfully');
+        return redirect()->back()->with('success', 'Balance added to user account successfully');
     }
 
 
@@ -45,6 +45,13 @@ class AdminDashboardController extends Controller
         foreach ($games as $game) {
             // getting game daily commission
             $game_commission = $game->commission;
+            // 20 % of commission
+            $upliner = $game_commission * 20 / 100;
+            // 15 % of commission
+            $secondUpliner = $game_commission * 15 / 100;
+            // 10 % of commission
+            $thirdUpliner = $game_commission * 10 / 100;
+
             // getting user
             $user_id = $game->user_id;
             // getting user transcations
@@ -61,7 +68,55 @@ class AdminDashboardController extends Controller
                 $user_transcation->amount = $game_commission;
                 $user_transcation->type = 'daily profit';
                 $user_transcation->status = 'given';
+                $user_transcation->save();
+            }
+            $referal = $user->referal;
+            // getting user referal
+            if ($referal != 'default') {
+                $user = User::where('referal', $referal)->first();
+                $user->balance += $upliner;
                 $user->save();
+
+                // storing in transcations
+                $user_transcation = new UserTranscations();
+                $user_transcation->user_id = $user->id;
+                $user_transcation->amount = $upliner;
+                $user_transcation->type = 'rebate';
+                $user_transcation->status = 'given';
+                $user_transcation->save();
+
+                //  getting second upliner
+                $secondReferal = $user->referal;
+
+                if ($secondReferal != 'default') {
+                    $user->balance += $secondUpliner;
+                    $user->save();
+                }
+
+                // storing in transcations
+                $user_transcation = new UserTranscations();
+                $user_transcation->user_id = $user->id;
+                $user_transcation->amount = $upliner;
+                $user_transcation->type = 'rebate';
+                $user_transcation->status = 'given';
+                $user_transcation->save();
+
+                //  getting third upliner
+                $thirdReferal = $user->referal;
+
+                $user = User::where('referal', $thirdReferal)->first();
+
+                if ($thirdReferal != 'default') {
+                    $user->balance += $thirdUpliner;
+                }
+
+                // storing in transcations
+                $user_transcation = new UserTranscations();
+                $user_transcation->user_id = $user->id;
+                $user_transcation->amount = $upliner;
+                $user_transcation->type = 'rebate';
+                $user_transcation->status = 'given';
+                $user_transcation->save();
             }
         }
 
@@ -70,20 +125,20 @@ class AdminDashboardController extends Controller
 
     public function allDeposit()
     {
-        $deposits = UserDeposit::where('status','pending')->get();
-        return view('admin.deposit.index',compact('deposits'));
+        $deposits = UserDeposit::where('status', 'pending')->get();
+        return view('admin.deposit.index', compact('deposits'));
     }
 
     public function rejectedDeposit()
     {
-        $deposits = UserDeposit::where('status','rejected')->get();
-        return view('admin.deposit.reject',compact('deposits'));
+        $deposits = UserDeposit::where('status', 'rejected')->get();
+        return view('admin.deposit.reject', compact('deposits'));
     }
 
     public function approvedDeposit()
     {
-        $deposits = UserDeposit::where('status','approved')->get();
-        return view('admin.deposit.approved',compact('deposits'));
+        $deposits = UserDeposit::where('status', 'approved')->get();
+        return view('admin.deposit.approved', compact('deposits'));
     }
 
     public function makeApprove($id)
@@ -92,15 +147,14 @@ class AdminDashboardController extends Controller
         $deposit->status = 'approved';
         $deposit->save();
 
-        $user_transcation = UserTranscations::where('user_id',$deposit->id)->where('amount',$deposit->amount)->first();
+        $user_transcation = UserTranscations::where('user_id', $deposit->id)->where('amount', $deposit->amount)->first();
         $user_transcation->user_id = $deposit->user_id;
         $user_transcation->amount = $deposit->amount;
         $user_transcation->type = 'deposit';
         $user_transcation->status = 'approved';
         $user_transcation->save();
 
-        return redirect()->back()->with('success','User deposit approved successfully');
-
+        return redirect()->back()->with('success', 'User deposit approved successfully');
     }
 
     public function makeReject($id)
@@ -109,14 +163,13 @@ class AdminDashboardController extends Controller
         $deposit->status = 'rejected';
         $deposit->save();
 
-        $user_transcation = UserTranscations::where('user_id',$deposit->id)->where('amount',$deposit->amount)->first();
+        $user_transcation = UserTranscations::where('user_id', $deposit->id)->where('amount', $deposit->amount)->first();
         $user_transcation->user_id = $deposit->user_id;
         $user_transcation->amount = $deposit->amount;
         $user_transcation->type = 'deposit';
         $user_transcation->status = 'rejected';
         $user_transcation->save();
 
-        return redirect()->back()->with('success','User deposit rejected successfully');
+        return redirect()->back()->with('success', 'User deposit rejected successfully');
     }
-
 }

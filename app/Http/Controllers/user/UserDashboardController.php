@@ -15,14 +15,14 @@ class UserDashboardController extends Controller
     public function index()
     {
         $games = Games::paginate(9);
-        $cart = AddToCart::where('user_id',auth()->user()->id)->first();
-        return view('user.dashboard',compact('games','cart'));
+        $cart = AddToCart::where('user_id', auth()->user()->id)->first();
+        return view('user.dashboard', compact('games', 'cart'));
     }
 
     public function games()
     {
         $games = Games::paginate(9);
-        return view('user.games.index',compact('games'));
+        return view('user.games.index', compact('games'));
     }
 
     public function addWallet()
@@ -33,17 +33,16 @@ class UserDashboardController extends Controller
     public function storeWallet(Request $request)
     {
 
-        $wallet_address = UserWallet::where('user_id',auth()->user()->id)->first();
-        if($wallet_address != '')
-        {
-            return redirect()->back()->with('error','You have already entered your wallet address');
+        $wallet_address = UserWallet::where('user_id', auth()->user()->id)->first();
+        if ($wallet_address != '') {
+            return redirect()->back()->with('error', 'You have already entered your wallet address');
         }
 
         $validated = $request->validate([
             'user_name' => 'required',
             'wallet_address' => 'required',
             'type' => 'required',
-            'pin' => ['required','max:5'],
+            'pin' => ['required', 'max:5'],
         ]);
 
         $wallet = new UserWallet();
@@ -54,25 +53,31 @@ class UserDashboardController extends Controller
         $wallet->pin = $validated['pin'];
         $wallet->save();
 
-        return redirect()->route('User.Widthraw')->with('success','Your have added wallet address successfully');
-
+        return redirect()->route('User.Widthraw')->with('success', 'Your have added wallet address successfully');
     }
 
     public function refer()
     {
+        $user = User::where('id', auth()->user()->id)->first();
+        $userLevel = $user->level;
+
+        if ($userLevel == 'level 1') {
+            return redirect()->back()->with('error', 'Please make your level (level 1) to open your referal link');
+        }
+
         return view('user.refer.index');
     }
 
     public function setting()
     {
-        $user = User::where('id',auth()->user()->id)->first();
-        return view('user.setting.index',compact('user'));
+        $user = User::where('id', auth()->user()->id)->first();
+        return view('user.setting.index', compact('user'));
     }
 
     public function report()
     {
         $user_transcations = UserTranscations::get();
-        return view('user.report',compact('user_transcations'));
+        return view('user.report', compact('user_transcations'));
     }
 
     public function links()
@@ -80,5 +85,15 @@ class UserDashboardController extends Controller
         return view('user.setting.links');
     }
 
+    public function referals()
+    {
+        $user = User::where('id', auth()->user()->id)->first();
+        $userLevel = $user->level;
 
+        if ($userLevel == 'level 1') {
+            return redirect()->back()->with('error', 'You have not activated your referal link yet.');
+        }
+        $users = User::where('referal', auth()->user()->email)->get();
+        return  view('user.wallet.team', compact('users'));
+    }
 }

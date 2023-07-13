@@ -35,22 +35,27 @@ class GameOrdersController extends Controller
         // getting order total price and its 3%
         $totalPrice = $game->total_price;
         $firstCommission = $totalPrice * 3 / 100;
+
+        // getting order total price and its 3%
+
+        $firstCommission = $totalPrice * 3 / 100;
+
+
         // getting user and adding amount to his net balance
         $user_id = $game->user_id;
         $user = User::where('id', $user_id)->first();
         $user->balance += $firstCommission;
         $user->save();
-        // changing status
+        // checking user referal is default or not
         $game->status = 'approved';
         $game->save();
 
-        $user_transcation = UserTranscations::where('user_id',$game->user_id)->where('amount',$game->amount)->first();
+        $user_transcation = UserTranscations::where('user_id', $game->user_id)->where('amount', $game->amount)->first();
         $user_transcation->user_id = $game->user_id;
         $user_transcation->amount = $game->amount;
         $user_transcation->type = 'invest';
         $user_transcation->status = 'approved';
         $user_transcation->save();
-
         return redirect()->back()->with('success', 'User Game Order Approved Successfully');
     }
 
@@ -60,7 +65,7 @@ class GameOrdersController extends Controller
         $game->status = 'rejected';
         $game->save();
 
-        $user_transcation = UserTranscations::where('user_id',$game->user_id)->where('amount',$game->amount)->first();
+        $user_transcation = UserTranscations::where('user_id', $game->user_id)->where('amount', $game->amount)->first();
         $user_transcation->user_id = $game->user_id;
         $user_transcation->amount = $game->amount;
         $user_transcation->type = 'invest';

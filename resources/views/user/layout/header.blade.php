@@ -158,7 +158,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="mybets.html" class="profile-row mt-3">
+                        <a href="{{ route('User.Referals') }}" class="profile-row mt-3">
                             <div class="d-flex align-items-center gap-2">
                                 <img src="{{ asset('assets/img/exchange.png') }}" alt="">
                                 <p class="fw-500 mb-0">Team's Income</p>
