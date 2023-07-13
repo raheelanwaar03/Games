@@ -17,7 +17,9 @@
                     width="150">
             </div>
             <h1 class="text-center mt-3">Verification Code</h1>
-            <p class="text-center mb-5">We have sent a verification code to your email you use while registeration</p>
+            <p class="text-center mb-5">We have sent a verification code to your email you use while registeration. IF you
+                have not recived your OTP then Click on <a href="{{ route('Resend.Otp') }}" class="btn btn-sm btn-primary">Resend
+                    OTP</a></p>
             <form action="{{ route('Verify.Otp') }}" method="POST">
                 @csrf
                 <div class="form-group">

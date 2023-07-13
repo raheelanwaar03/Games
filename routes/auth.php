@@ -42,6 +42,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('Verify/OTP', [OTPController::class, 'verifyOtp'])->name('Verify.Otp');
 
+    Route::get('Resend/OTP', [OTPController::class, 'resendOtp'])->name('Resend.Otp');
+
     Route::get('verify-email', EmailVerificationPromptController::class)
         ->name('verification.notice');
 
