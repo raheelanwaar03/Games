@@ -1,31 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('auth.layout.app')
 
-<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
-    <link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('assets/css/swiper.css') }}" />
-    <link rel="stylesheet" href="../../cdn.jsdelivr.net/npm/bootstrap-icons%401.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
-    <title>{{ env('APP_NAME') }}</title>
-</head>
-
-<body>
-    <div id="preloader">
-        <div class="img-container">
-            <img class="img-fluid" height="150" width="150" src="{{ asset('assets/img/log-bg.png') }}" alt="">
-        </div>
-    </div>
-    <x-alert/>
-    <!-- welcome slider Section -->
+@section('content')
     <div class="login-email">
         <div class="top-bg">
-
         </div>
         <div class="login-card">
             <div class="login-logo">
@@ -51,8 +28,4 @@
                     class="text-blue">Register</a></p>
         </div>
     </div>
-    <!-- JS file links -->
-    <script src="assets/js/main.js"></script>
-</body>
-
-</html>
+@endsection

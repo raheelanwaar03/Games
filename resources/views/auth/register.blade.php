@@ -27,7 +27,7 @@
             <input type="hidden" name="referal" value="{{ $referal }}">
             <label class="mb-3">
                 <input type="checkbox" checked="checked">
-                I agree to sports betting <a href="terms.html" class="text-blue">Terms and services</a>,
+                I agree to {{ env('APP_NAME') }} <a href="#" class="text-blue">Terms and services</a>,
                 Privacy policy and content Privacy
             </label>
             <button class="gradient-btn-full">Register</button>

@@ -3,13 +3,17 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\VerifyEmail;
+use App\Models\auth\OtpVerfication;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use Carbon\Carbon;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -46,6 +50,15 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+
+        $otp = OtpVerfication::create([
+            'user_id' => $user->id,
+            'otp' => rand(10000, 99999),
+            'expires_at' => Carbon::now()->addSeconds(90),
+        ]);
+
+        Mail::to($user->email)->send(new VerifyEmail($otp));
+
 
         return redirect(RouteServiceProvider::HOME);
     }
