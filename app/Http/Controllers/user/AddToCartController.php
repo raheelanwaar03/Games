@@ -36,7 +36,7 @@ class AddToCartController extends Controller
         $cart->total_price = $total_price;
         $cart->commission = $game_commission;
         $cart->save();
-        return redirect()->route('User.Cart');
+        return redirect()->route('User.Cart.Items');
     }
 
     public function items()

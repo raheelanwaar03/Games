@@ -17,7 +17,9 @@
     {{-- font awsome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 
+
     <style>
+
         /* Style the input field */
         .input-field {
             display: inline-block;

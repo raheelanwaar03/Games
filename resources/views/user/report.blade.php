@@ -8,24 +8,24 @@
 
 @section('content')
     <section class="matchboard mx-3 position-relative">
-        <ul class="nav nav-pills my-3 d-flex justify-content-between" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
+        <ul class="nav nav-pills my-3 d-flex justify-content-center align-items-center" style="flex-wrap: wrap;" id="pills-tab" role="tablist">
+            <li class="nav-item" style="flex: 0 0 calc(20% - 10px);" role="presentation">
                 <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#widthraw"
                     type="button" role="tab" aria-controls="pills-home" aria-selected="true"><i
                         class="bi bi-circle-fill live"></i>
                     widthraw</button>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item" style="flex: 0 0 calc(20% - 10px);" role="presentation">
                 <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#daily profit"
                     type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><i
-                        class="bi bi-circle-fill live"></i> Daily Profit</button>
+                        class="bi bi-circle-fill live"></i> Profit</button>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item" style="flex: 0 0 calc(20% - 10px);" role="presentation">
                 <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#rebate"
                     type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><i
                         class="bi bi-circle-fill live"></i> Rebate</button>
             </li>
-            <li class="nav-item" role="presentation">
+            <li class="nav-item" style="flex: 0 0 calc(20% - 10px);" role="presentation">
                 <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#deposit"
                     type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><i
                         class="bi bi-circle-fill live"></i>

@@ -1,23 +1,6 @@
-<script>
-    function updateQuantity(operation) {
-        var quantityElement = document.getElementById('quantity');
-        var quantity = parseInt(quantityElement.value);
 
-        // Increase or decrease the quantity based on the operation
-        if (operation === 'plus') {
-            quantity += 1;
-        } else if (operation === 'minus') {
-            if (quantity > 1) {
-                quantity -= 1;
-            }
-        }
-
-        // Update the quantity input field
-        quantityElement.value = quantity;
-    }
-</script>
-
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 <!-- JS file links -->
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>

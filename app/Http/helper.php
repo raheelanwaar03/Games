@@ -89,5 +89,20 @@ function totalIncome()
 }
 
 
+function totalCommission()
+{
+    $cart = AddToCart::where('user_id', auth()->user()->id)->get();
+
+    $totalCommission = 0;
+    foreach ($cart as $item) {
+        $totalCommission += $item->commission;
+    }
+
+    return $totalCommission;
+
+}
+
+
+
 
 
