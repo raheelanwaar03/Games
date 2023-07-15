@@ -56,7 +56,7 @@
                         </div>
                         <div class="swiper-slide d-flex justify-content-center">
                             <div class="box">
-                                <img src="{{ asset('assets/1 (9).png') }}" class="img-fluid img-responsive" alt="">
+                                <img src="{{ asset('assets/1 (10).png') }}" class="img-fluid img-responsive" alt="">
                                 <h1 class="mt-5">{{ env('APP_NAME') }}</h1>
                                 <p>Investe with us and invite more friends to our platform to win exciting prizes!</p>
                             </div>
