@@ -4,7 +4,7 @@
     <div class="d-flex justify-content-between align-items-center">
         <h1 class="fw-500 mb-3">User Dashboard</h1>
         @if ($cart != null)
-            <a href="{{ route('User.Cart.Items') }}" class="btn btn-primary">Pay Now</a>
+            <a href="{{ route('User.Cart.Payment') }}" class="btn btn-primary">Pay Now</a>
         @endif
     </div>
 @endsection

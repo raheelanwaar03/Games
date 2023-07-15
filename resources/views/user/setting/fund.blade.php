@@ -23,13 +23,13 @@
             <form action="{{ route('User.Update.Fund.Password') }}" method="POST">
                 @csrf
                 <div class="input-box gap-1">
-                    <input type="text" name="pin" placeholder="Enter your old Password">
+                    <input type="text" name="pin" placeholder="Enter your old Fund Password">
                 </div>
                 <div class="input-box">
-                    <input type="text" name="newPin" placeholder="Enter New Password">
+                    <input type="text" name="newPin" placeholder="Enter New Fund Password">
                 </div>
                 <div class="input-box">
-                    <input type="text" name="confirmPin" placeholder="Re-type Password">
+                    <input type="text" name="confirmPin" placeholder="Re-type Fund Password">
                 </div>
                 <button type="submit" class="gradient-btn-full">Update</button>
             </form>
