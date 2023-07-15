@@ -26,19 +26,55 @@
     </section>
 
     <script>
-        function copyAndShareLink() {
-            var linkInput = document.getElementById("linkInput");
-            linkInput.select();
-            linkInput.setSelectionRange(0, 99999);
-            document.execCommand("copy");
-            alert("Link copied to clipboard!");
+        // Check if Web Share API is supported
+        if (navigator.share) {
+            const shareButton = document.getElementById('linkInput');
+            shareButton.addEventListener('click', shareVideo);
+        } else {
+            console.log('Web Share API is not supported in this browser.');
+        }
 
-            // Perform additional sharing logic
-            // For example, you can open a share dialog or redirect to a social media page
-            // Replace the URL below with your desired sharing URL
-            var sharingURL = "{{ route('register', ['referal' => Auth::user()->email]) }}" + encodeURIComponent(linkInput
-                .value);
-            window.open(sharingURL);
+        function shareVideo() {
+            // Get the video link
+            const videoLink = '{{ route('register', ['referal' => Auth::user()->email]) }}'; // Replace with your video link
+
+            // Check if Web Share API is supported
+            if (navigator.share) {
+                // Use Web Share API to share the video link
+                navigator.share({
+                        title: 'Invitation link',
+                        url: videoLink
+                    })
+                    .then(() => console.log('link shared successfully.'))
+                    .catch((error) => console.log('Error sharing link:', error));
+            } else {
+                // If Web Share API is not supported, display a prompt with the video link and copy option
+                const promptText = `Share this link:\n${videoLink}`;
+
+                // Create a textarea element to hold the video link
+                const textarea = document.createElement('textarea');
+                textarea.value = videoLink;
+                textarea.style.position = 'fixed'; // Ensure the textarea is hidden
+                document.body.appendChild(textarea);
+
+                // Select the text within the textarea
+                textarea.select();
+                textarea.setSelectionRange(0, videoLink.length);
+
+                try {
+                    // Copy the video link to the clipboard
+                    document.execCommand('copy');
+                    console.log('Link copied to clipboard.');
+                } catch (error) {
+                    console.log('Error copying link:', error);
+                }
+
+                // Remove the textarea element from the DOM
+                document.body.removeChild(textarea);
+
+                // Show a prompt to inform the user that the video link has been copied
+                alert(`${promptText}\n\nLink copied to clipboard.`);
+            }
         }
     </script>
 @endsection
