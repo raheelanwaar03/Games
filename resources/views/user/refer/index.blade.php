@@ -16,6 +16,7 @@
                     alt="">
             </div>
         </div>
+
         <div class="form-group">
             <input type="text" class="form-control bg-transparent text-white"
                 value="{{ route('register', ['referal' => Auth::user()->email]) }}" id="myInput" readonly>
@@ -28,26 +29,13 @@
 
     <script>
         function copy() {
-            // Get the current URL
-            var url = window.location.href;
-
-            // Create an input element to hold the URL
-            var inputElement = document.createElement('myInput');
-            inputElement.setAttribute('value', url);
-            document.body.appendChild(inputElement);
-
-            // Select the URL in the input element
-            inputElement.select();
-            inputElement.setSelectionRange(0, 99999); // For mobile devices
-
-            // Copy the URL to the clipboard
-            document.execCommand('copy');
-
-            // Remove the input element from the document
-            document.body.removeChild(inputElement);
-
-            // Display a success message
-            alert('Link copied to clipboard!');
+            // Get the text field
+            var copyText = document.getElementById("myInput");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            // Alert the copied text
+            alert("Copied the text: " + copyText.value);
         }
     </script>
 @endsection
