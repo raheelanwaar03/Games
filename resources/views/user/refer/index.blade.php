@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
             <input type="text" class="form-control bg-transparent text-white"
-                value="{{ route('register', ['referal' => Auth::user()->email]) }}" id="myInput" readonly>
+                value="{{ route('register', ['referal' => Auth::user()->email]) }}" id="linkInput" readonly>
         </div>
         <div class="btns mt-4 d-flex justify-content-center gap-4">
             <a onclick="shareLink()" class="gradient-btn-full">Share Now</a>
@@ -28,26 +28,36 @@
 
     <script>
         function shareLink() {
-            // Get the current URL
-            var url = window.location.href;
+            // Get the input element that contains the link
+            var linkInput = document.getElementById('linkInput');
 
-            // Create an input element to hold the URL
-            var inputElement = document.createElement('input');
-            inputElement.setAttribute('value', url);
-            document.body.appendChild(inputElement);
+            // Create a temporary textarea element
+            var tempTextArea = document.createElement('textarea');
+            tempTextArea.value = linkInput.value;
 
-            // Select the URL in the input element
-            inputElement.select();
-            inputElement.setSelectionRange(0, 99999); // For mobile devices
+            // Append the textarea to the document
+            document.body.appendChild(tempTextArea);
 
-            // Copy the URL to the clipboard
+            // Select the text in the textarea
+            tempTextArea.select();
+            tempTextArea.setSelectionRange(0, 99999); // For mobile devices
+
+            // Copy the text to the clipboard
             document.execCommand('copy');
 
-            // Remove the input element from the document
-            document.body.removeChild(inputElement);
+            // Remove the temporary textarea
+            document.body.removeChild(tempTextArea);
 
-            // Display a success message
-            alert('Link copied to clipboard!');
+            // Share the link on social media
+            // Replace the social media URLs with the actual URLs you want to use
+            var facebookUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(linkInput.value);
+            var twitterUrl = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(linkInput.value);
+            var linkedinUrl = 'https://www.linkedin.com/shareArticle?url=' + encodeURIComponent(linkInput.value);
+
+            // Open the social media sharing links in new tabs
+            window.open(facebookUrl, '_blank');
+            window.open(twitterUrl, '_blank');
+            window.open(linkedinUrl, '_blank');
         }
     </script>
 @endsection
