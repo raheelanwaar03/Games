@@ -8,8 +8,36 @@
         @endif
     </div>
 @endsection
-
 @section('content')
+    <div class="container mb-3">
+        <div class="row auto-play">
+            <div class="col-sm-4 px-1">
+                <img src="{{ asset('assets/img/baners1.jpg') }}" alt="image" class="img-responsive w-100" style="height: 200px;width: 150px;"
+                    class="img-responsive img-fluid">
+            </div>
+            <div class="col-sm-4 px-1">
+                <img src="{{ asset('assets/img/banner2.jpg') }}" alt="image" class="img-responsive w-100" style="height: 200px;width: 150px;"
+                    class="img-responsive img-fluid">
+            </div>
+            <div class="col-sm-4 px-1">
+                <img src="{{ asset('assets/img/banner3.jpg') }}" alt="image" class="img-responsive w-100" style="height: 200px;width: 150px;"
+                    class="img-responsive img-fluid">
+            </div>
+            <div class="col-sm-4 px-1">
+                <img src="{{ asset('assets/img/baners1.jpg') }}" alt="image" class="img-responsive w-100" style="height: 200px;width: 150px;"
+                    class="img-responsive img-fluid">
+            </div>
+            <div class="col-sm-4 px-1">
+                <img src="{{ asset('assets/img/banner2.jpg') }}" alt="image" class="img-responsive w-100" style="height: 200px;width: 150px;"
+                    class="img-responsive img-fluid">
+            </div>
+            <div class="col-sm-4 px-1">
+                <img src="{{ asset('assets/img/banner3.jpg') }}" alt="image" class="img-responsive w-100" style="height: 200px;width: 150px;"
+                    class="img-responsive img-fluid">
+            </div>
+        </div>
+    </div>
+
     <section class="matchboard position-relative">
         <ul class="nav nav-pills d-flex justify-content-around align-items-center" style="flex-wrap: wrap;" id="pills-tab"
             role="tablist">
@@ -32,7 +60,7 @@
         </ul>
     </section>
 
-    <div class="container">
+    <div class="container mb-5">
         <div class="row mt-3 pb-5">
             <div class="col-md-12 d-flex justify-content-center align-items-center">
                 @forelse ($games as $game)
