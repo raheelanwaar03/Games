@@ -36,6 +36,12 @@
             navigator.clipboard.writeText(copyText.value);
             // Alert the copied text
             alert("Copied the text: " + copyText.value);
+
+            var sharingURL = copyText + encodeURIComponent(link);
+
+            // Open a new window for sharing
+            window.open(sharingURL, "_blank", "width=600,height=400");
+
         }
     </script>
 @endsection
