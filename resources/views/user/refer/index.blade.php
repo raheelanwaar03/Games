@@ -27,12 +27,12 @@
 
 
     <script>
-        function shareLink() {
+        function copy() {
             // Get the current URL
             var url = window.location.href;
 
             // Create an input element to hold the URL
-            var inputElement = document.createElement('input');
+            var inputElement = document.createElement('myInput');
             inputElement.setAttribute('value', url);
             document.body.appendChild(inputElement);
 
