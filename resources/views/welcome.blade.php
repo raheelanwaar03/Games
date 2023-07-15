@@ -34,14 +34,14 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide d-flex justify-content-center">
                             <div class="box">
-                                <img src="{{ asset('assets/img5.jpg') }}" class="img-fluid" alt="">
+                                <img src="{{ asset('assets/1 (3).png') }}" class="img-fluid img-responsive" alt="">
                                 <h1 class="mt-5">{{ env('APP_NAME') }}</h1>
                                 <p>Invest with us, earn with us!</p>
                             </div>
                         </div>
                         <div class="swiper-slide d-flex justify-content-center">
                             <div class="box">
-                                <img src="{{ asset('assets/img6.jpg') }}" class="img-fluid" alt="">
+                                <img src="{{ asset('assets/1 (11).png') }}" class="img-fluid img-responsive" alt="">
                                 <h1 class="mt-5">{{ env('APP_NAME') }}</h1>
                                 <p>With all the information you need, you can start investing and earning. Good Luck!
                                 </p>
@@ -49,14 +49,14 @@
                         </div>
                         <div class="swiper-slide d-flex justify-content-center">
                             <div class="box">
-                                <img src="{{ asset('assets/img7.jpg') }}" class="img-fluid" alt="">
+                                <img src="{{ asset('assets/1 (8).png') }}" class="img-fluid img-responsive" alt="">
                                 <h1 class="mt-5">{{ env('APP_NAME') }}</h1>
                                 <p>Feel the exuberance and excitement of inviting new friends and earn profit.</p>
                             </div>
                         </div>
                         <div class="swiper-slide d-flex justify-content-center">
                             <div class="box">
-                                <img src="{{ asset('assets/img4.jpg') }}" class="img-fluid" alt="">
+                                <img src="{{ asset('assets/1 (9).png') }}" class="img-fluid img-responsive" alt="">
                                 <h1 class="mt-5">{{ env('APP_NAME') }}</h1>
                                 <p>Investe with us and invite more friends to our platform to win exciting prizes!</p>
                             </div>

@@ -12,7 +12,7 @@
             <h1 class="text-center pt-4">Earn commission on
                 inviting your friends</h1>
             <div class="d-flex justify-content-center my-5 py-5">
-                <img src="{{ asset() }}" class="img-fluid" height="200" width="200"
+                <img src="{{ asset('assets/invite.jpeg') }}" class="img-fluid img-responsive" height="200" width="200"
                     alt="">
             </div>
         </div>
