@@ -25,39 +25,20 @@
         </div>
     </section>
 
-
     <script>
-        function shareLink() {
-            // Get the input element that contains the link
-            var linkInput = document.getElementById('linkInput');
+        function copyAndShareLink() {
+            var linkInput = document.getElementById("linkInput");
+            linkInput.select();
+            linkInput.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            alert("Link copied to clipboard!");
 
-            // Create a temporary textarea element
-            var tempTextArea = document.createElement('textarea');
-            tempTextArea.value = linkInput.value;
-
-            // Append the textarea to the document
-            document.body.appendChild(tempTextArea);
-
-            // Select the text in the textarea
-            tempTextArea.select();
-            tempTextArea.setSelectionRange(0, 99999); // For mobile devices
-
-            // Copy the text to the clipboard
-            document.execCommand('copy');
-
-            // Remove the temporary textarea
-            document.body.removeChild(tempTextArea);
-
-            // Share the link on social media
-            // Replace the social media URLs with the actual URLs you want to use
-            var facebookUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(linkInput.value);
-            var twitterUrl = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(linkInput.value);
-            var linkedinUrl = 'https://www.linkedin.com/shareArticle?url=' + encodeURIComponent(linkInput.value);
-
-            // Open the social media sharing links in new tabs
-            window.open(facebookUrl, '_blank');
-            window.open(twitterUrl, '_blank');
-            window.open(linkedinUrl, '_blank');
+            // Perform additional sharing logic
+            // For example, you can open a share dialog or redirect to a social media page
+            // Replace the URL below with your desired sharing URL
+            var sharingURL = "{{ route('register', ['referal' => Auth::user()->email]) }}" + encodeURIComponent(linkInput
+                .value);
+            window.open(sharingURL);
         }
     </script>
 @endsection
