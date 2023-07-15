@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/swiper.css') }}" />
     <link rel="stylesheet" href="../../cdn.jsdelivr.net/npm/bootstrap-icons%401.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <title>{{ env('APP_NAME') }}</title>
 </head>
 

@@ -12,7 +12,7 @@
             <a href="#" onclick="window.history.back()">
                 <i class="bi bi-arrow-left text-white"></i>
             </a>
-            <p class="mb-0 text-white">Send the amount on our given wallet which you want to add in your wallet address and
+            <p class="mb-0 text-white">Send ${{ totalPrice() }} price on our given wallet address then
                 enter screenshot with TrxId below.</p>
             <span> </span>
         </div>
@@ -25,8 +25,10 @@
             <a onclick="copy()" class="ref-copy pr-4" style="border-radius:10px;"><i class="fa fa-copy"></i></a>
         </div>
         <hr color="white">
-        <div class="d-flex justify-content-center py-4">
+        <div class="text-center py-4">
             <h5>Total Amount To Pay: <span class="text-white">${{ totalPrice() }}</span></h5>
+            <br>
+            <h5>Daily commission you recive: <span class="text-white">${{ totalCommission() }}</span></h5>
         </div>
         <hr color="white">
 

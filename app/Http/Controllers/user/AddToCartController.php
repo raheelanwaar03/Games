@@ -24,8 +24,17 @@ class AddToCartController extends Controller
 
         $total_price = $game_price * $request->qty;
 
-        // Storing item in cart
+        // Checking that user already select this game befor or not
 
+        $game = AddToCart::where('user_id',auth()->user()->id)->where('game_id',$game_id)->first();
+        if($game != '')
+        {
+            return redirect()->route('User.Cart.Payment')->with('success','You already selected this game before');
+        }
+
+
+
+        // Storing item in cart
         $cart = new AddToCart();
         $cart->user_id = auth()->user()->id;
         $cart->game_id = $game_id;
@@ -36,7 +45,7 @@ class AddToCartController extends Controller
         $cart->total_price = $total_price;
         $cart->commission = $game_commission;
         $cart->save();
-        return redirect()->route('User.Cart.Items');
+        return redirect()->route('User.Cart.Payment');
     }
 
     public function items()
@@ -88,4 +97,15 @@ class AddToCartController extends Controller
 
         return redirect()->route('User.Dashboard')->with('success', 'You have successfully submit your request. Admin will check and then approve it.');
     }
+
+
+    public function details($id)
+    {
+        $game = Games::find($id);
+        return view('user.cart.show',compact('game'));
+    }
+
+
+
+
 }

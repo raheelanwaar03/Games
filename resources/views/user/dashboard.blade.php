@@ -10,6 +10,34 @@
 @endsection
 
 @section('content')
+    <section class="matchboard mx-3 position-relative">
+        <ul class="nav nav-pills my-3 d-flex justify-content-around align-items-center" style="flex-wrap: wrap;" id="pills-tab"
+            role="tablist">
+            <a href="{{ route('User.Deposit.Amount') }}">
+                <li class="nav-item" style="flex: 0 0 calc(20% - 10px);" role="presentation">
+                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#widthraw"
+                        type="button" role="tab" aria-controls="pills-home" aria-selected="true"><i
+                            class="bi bi-circle-fill live"></i>
+                        Recharge</button>
+                </li>
+            </a>
+            <a href="{{ route('User.Widthraw') }}">
+                <li class="nav-item" style="flex: 0 0 calc(20% - 10px);" role="presentation">
+                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#daily profit"
+                        type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><i
+                            class="bi bi-circle-fill live"></i> Widthraw</button>
+                </li>
+            </a>
+            <a href="#">
+                <li class="nav-item" style="flex: 0 0 calc(20% - 10px);" role="presentation">
+                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#rebate"
+                        type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><i
+                            class="bi bi-circle-fill live"></i> Help Center</button>
+                </li>
+            </a>
+        </ul>
+    </section>
+
     <div class="container">
         <div class="row mt-3 py-5">
             <div class="col-md-12 d-flex justify-content-center align-items-center">
@@ -17,12 +45,10 @@
                     <div class="col-sm-6 mx-2">
                         <img src="{{ asset('images/' . $game->image) }}" class="img-responsive w-100" alt="image">
                         <div class="d-flex justify-content-end">
-                            <form action="{{ route('User.Cart', ['id' => $game->id]) }}" method="POST">
-                                @csrf
-                                <div class="float-right">
-                                    <button type="submit" class="btn btn-sm btn-outline-primary text-white" style="margin-top:-60px;">Buy</button>
-                                </div>
-                            </form>
+                            <div class="float-right">
+                                <a href="{{ route('User.Show.Details', ['id' => $game->id]) }}"
+                                    class="btn btn-sm btn-outline-primary text-white" style="margin-top:-60px;">Buy</a>
+                            </div>
                         </div>
                     </div>
                 @empty
@@ -31,47 +57,4 @@
             </div>
         </div>
     </div>
-    {{-- <div class="col-sm-3">
-            <div class="image-css">
-                <img src="{{ asset('images/' . $game->image) }}" alt="Image" height="150px" width="150px"
-                    class="img-responsive">
-            </div>
-            <div class="">
-                <form action="{{ route('User.Cart', ['id' => $game->id]) }}" method="POST">
-                    @csrf
-                    <div class="float-right">
-                        <button type="submit" class="btn btn-sm btn-primary">Buy</button>
-                    </div>
-                </form>
-            </div>
-        </div> --}}
-    {{-- <div class="card-footer" style="border-top:1px solid white">
-                    <form action="{{ route('User.Cart', ['id' => $game->id]) }}" method="POST">
-                        @csrf
-                        <div class="d-flex justify-content-between align-items-center">
-                            <i class="fa fa-minus" onclick="updateQuantity('minus')"></i>
-                            <input name="qty" id="{{ $game->title }}" type="number" min="1"
-                                style="width: 40px;" value="1">
-                            <i class="fa fa-plus" onclick="updateQuantity('plus')"></i>
-                        </div>
-                    </form>
-                </div> --}}
-    {{-- <script>
-                    function updateQuantity(operation) {
-                        var quantityElement = document.getElementById('{{ $game->title }}');
-                        var quantity = parseInt(quantityElement.value);
-
-                        // Increase or decrease the quantity based on the operation
-                        if (operation === 'plus') {
-                            quantity += 1;
-                        } else if (operation === 'minus') {
-                            if (quantity > 1) {
-                                quantity -= 1;
-                            }
-                        }
-
-                        // Update the quantity input field
-                        quantityElement.value = quantity;
-                    }
-                </script> --}}
 @endsection

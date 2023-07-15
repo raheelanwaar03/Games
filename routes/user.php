@@ -16,6 +16,7 @@ Route::name('User.')->prefix('User')->middleware('auth', 'user')->group(function
     // cart items
     Route::post('/Add-To-Cart/{id}', [AddToCartController::class, 'index'])->name('Cart');
     Route::get('/Cart/Items', [AddToCartController::class, 'items'])->name('Cart.Items');
+    Route::get('/Show/Details/{id}', [AddToCartController::class, 'details'])->name('Show.Details');
     Route::get('/Cart/Payment', [AddToCartController::class, 'cartPayment'])->name('Cart.Payment');
     Route::post('/Cart/Games/Bill', [AddToCartController::class, 'cartBill'])->name('Cart.Games.Bill');
     // Deposit Routes
