@@ -18,26 +18,36 @@
         </div>
         <div class="form-group">
             <input type="text" class="form-control bg-transparent text-white"
-                value="{{ route('register', ['referal' => Auth::user()->email]) }}" id="linkInput" readonly>
+                value="{{ route('register', ['referal' => Auth::user()->email]) }}" id="myInput" readonly>
         </div>
         <div class="btns mt-4 d-flex justify-content-center gap-4">
-            <a onclick="shareLink()" class="gradient-btn-full">Share Now</a>
+            <a onclick="copy()" class="gradient-btn-full">Copy Invitation</a>
         </div>
     </section>
 
+
     <script>
         function shareLink() {
-            var linkInput = document.getElementById("linkInput");
-            var link = linkInput.value;
+            // Get the current URL
+            var url = window.location.href;
 
-            var sharingURL = "{{ route('register', ['referal' => Auth::user()->email]) }}" + encodeURIComponent(link);
-            window.open(sharingURL);
+            // Create an input element to hold the URL
+            var inputElement = document.createElement('input');
+            inputElement.setAttribute('value', url);
+            document.body.appendChild(inputElement);
 
-            linkInput.select();
-            linkInput.setSelectionRange(0, 99999);
-            document.execCommand("copy");
+            // Select the URL in the input element
+            inputElement.select();
+            inputElement.setSelectionRange(0, 99999); // For mobile devices
 
-            alert("Link copied to clipboard and shared!");
+            // Copy the URL to the clipboard
+            document.execCommand('copy');
+
+            // Remove the input element from the document
+            document.body.removeChild(inputElement);
+
+            // Display a success message
+            alert('Link copied to clipboard!');
         }
     </script>
 @endsection
