@@ -10,18 +10,67 @@
     <section class="pb-5">
         <div class="container pb-5">
             <div class="row justify-content-center">
-                <div class="col-md-4 text-center mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <iframe class="card-img-top" width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                        </iframe>
-                        <div class="card-body">
-                            <h4 class="card-text text-black">test video</h4>
-                            <p class="text-black">test description</p>
+                <div class="col-sm-12">
+                    <div class="col-md-4 text-center mt-3">
+                        <div class="card" style="width: 18rem;">
+                            <iframe class="card-img-top" width="420" height="315"
+                                src="https://youtube.com/shorts/aH3q1-0jq-M">
+                            </iframe>
+                            <div class="card-body">
+                                <h4 class="card-text text-black">test video</h4>
+                                <p class="text-black">test description</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center mt-3">
+                        <div class="card" style="width: 18rem;">
+                            <iframe class="card-img-top" width="420" height="315"
+                                src="https://youtube.com/shorts/CM6kx9zdsrc">
+                            </iframe>
+                            <div class="card-body">
+                                <h4 class="card-text text-black">test video</h4>
+                                <p class="text-black">test description</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center mt-3">
+                        <div class="card" style="width: 18rem;">
+                            <iframe class="card-img-top" width="420" height="315"
+                                src="https://youtube.com/shorts/WkJHoP8d_-k?feature=share4">
+                            </iframe>
+                            <div class="card-body">
+                                <h4 class="card-text text-black">test video</h4>
+                                <p class="text-black">test description</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-12">
+                    <div class="col-md-4 text-center mt-3">
+                        <div class="card" style="width: 18rem;">
+                            <iframe class="card-img-top" width="420" height="315"
+                                src="https://youtube.com/shorts/to-H29-ePJQ">
+                            </iframe>
+                            <div class="card-body">
+                                <h4 class="card-text text-black">test video</h4>
+                                <p class="text-black">test description</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center mt-3">
+                        <div class="card" style="width: 18rem;">
+                            <iframe class="card-img-top" width="420" height="315"
+                                src="https://youtube.com/shorts/FS0_d4OnHok">
+                            </iframe>
+                            <div class="card-body">
+                                <h4 class="card-text text-black">test video</h4>
+                                <p class="text-black">test description</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
-        </section>
-    @endsection
+        </div>
+        </div>
+    </section>
+@endsection

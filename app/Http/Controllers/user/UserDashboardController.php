@@ -19,6 +19,12 @@ class UserDashboardController extends Controller
         return view('user.dashboard', compact('games', 'cart'));
     }
 
+    public function agreement()
+    {
+        return view('user.agreement');
+    }
+
+
     public function games()
     {
         $games = Games::paginate(9);

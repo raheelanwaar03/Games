@@ -19,7 +19,6 @@
 
 
     <style>
-
         /* Style the input field */
         .input-field {
             display: inline-block;
@@ -152,11 +151,14 @@
                                     <h3>${{ totalIncome() }}</h3>
                                 </div>
                             </div>
-                            <div class="card-bottom">
-                                <div class="d-flex gap-4 align-items-center">
-                                    <a class="gradient-btn py-2 px-3 fs-6 fw-normal"
-                                        href="{{ route('User.Deposit.Amount') }}">Recharge</a>
-                                    <a class="outline-btn-small fs-6" href="{{ route('User.Widthraw') }}">Withdraw</a>
+                            <div class="card-top d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p class="mb-1"> <a href="{{ route('User.Deposit.Amount') }}"
+                                            class="gradient-btn">Recharge</a></p>
+                                </div>
+                                <div>
+                                    <p> <a href="{{ route('User.Widthraw') }}" class="gradient-btn">Widthraw</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -188,7 +190,7 @@
                             </div>
                             <i class="bi bi-chevron-right"></i>
                         </a>
-                        <a href="#" class="profile-row mt-3">
+                        <a href="{{ route('User.Agreement') }}" class="profile-row mt-3">
                             <div class="d-flex align-items-center gap-2">
                                 <img src="{{ asset('assets/img/feedback.png') }}" alt="">
                                 <p class="fw-500 mb-0">User Agreement</p>

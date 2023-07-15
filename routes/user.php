@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::name('User.')->prefix('User')->middleware('auth', 'user')->group(function () {
 
     Route::get('/Dashboard', [UserDashboardController::class, 'index'])->name('Dashboard');
+    Route::get('/Agreement', [UserDashboardController::class, 'agreement'])->name('Agreement');
     Route::get('/Games', [UserDashboardController::class, 'games'])->name('Games');
     Route::get('/Refer/Friend', [UserDashboardController::class, 'refer'])->name('Refer.Friend');
     // cart items
