@@ -182,7 +182,7 @@ section {
 }
 
 .login-email .top-bg {
-    background-image: url("../img/login-2-bg.png");
+    background-image: url("{{ asset('assets/img/login-bg.png') }}");
     background-position: top;
     background-repeat: no-repeat;
     border-bottom-left-radius: 45%;
