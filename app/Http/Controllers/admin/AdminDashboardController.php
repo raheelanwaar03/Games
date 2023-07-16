@@ -27,6 +27,7 @@ class AdminDashboardController extends Controller
     {
         $user = User::find($id);
         $user->balance += $request->balance;
+        $user->level += $request->level;
         $user->save();
         return redirect()->back()->with('success', 'Balance added to user account successfully');
     }

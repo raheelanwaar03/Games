@@ -29,6 +29,10 @@
                                         <input type="text" name="balance" value="{{ $user->balance }}"
                                             class="form-control input-rounded">
                                     </div>
+                                    <div class="mb-3">
+                                        <input type="text" name="level" value="{{ $user->level }}"
+                                            class="form-control input-rounded">
+                                    </div>
                                     <div class="">
                                         <button type="submit" class="btn btn-primary">Add</button>
                                     </div>
