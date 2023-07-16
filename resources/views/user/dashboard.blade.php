@@ -9,7 +9,7 @@
     </div>
 @endsection
 @section('content')
-    <div class="container mb-3">
+    <div class="container mb-3" style="margin-bottom: 50px">
         <div class="row center">
             <div class="col-sm-4 px-1">
                 <img src="{{ asset('assets/img/baners1.jpg') }}" alt="image" class="img-responsive w-100"
@@ -38,6 +38,27 @@
         </div>
     </div>
 
+    <div class="container mb-5">
+        <h4>New Games</h4>
+        <div class="row center">
+            @forelse ($games as $game)
+                <div class="col-sm-4 px-1">
+                    <img src="{{ asset('images/' . $game->image) }}" class="img-responsive w-100" height="150px"
+                        width="150px" alt="image">
+                    <div class="d-flex justify-content-end">
+                        <div class="float-right">
+                            <a href="{{ route('User.Show.Details', ['id' => $game->id]) }}"
+                                class="btn btn-danger text-white" style="margin-top:-61px;">Buy</a>
+                        </div>
+                    </div>
+                </div>
+            @empty
+                <h3>No Game Added Yet!</h3>
+            @endforelse
+        </div>
+    </div>
+
+
     <section class="matchboard position-relative">
         <ul class="nav nav-pills d-flex justify-content-around align-items-center" style="flex-wrap: wrap;" id="pills-tab"
             role="tablist">
@@ -61,7 +82,7 @@
     </section>
 
 
-    <div class="container mb-5" style="margin-bottom: 50px">
+    <div class="container mb-5" style="margin-bottom: 80px;margin-top:-20px;">
         <div class="row center">
             @forelse ($games as $game)
                 <div class="col-sm-4 px-1">
