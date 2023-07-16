@@ -104,9 +104,17 @@
                             <span class="nav-text">Widthraw</span>
                         </a>
                         <ul aria-expanded="false">
-                             <li><a href="{{ route('Admin.All.Widthrawal.Requests') }}">Pending</a></li>
+                            <li><a href="{{ route('Admin.All.Widthrawal.Requests') }}">Pending</a></li>
                             <li><a href="{{ route('Admin.All.Approved.Widthraw') }}">Approved</a></li>
                             <li><a href="{{ route('Admin.All.Rejected.Widthraw') }}">Rejected</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-041-graph"></i>
+                            <span class="nav-text">Wallet</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{ route('Admin.Add.Wallet.Address') }}">Wallet Address</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -136,6 +144,14 @@
                         <ul aria-expanded="false">
                             <li><a href="{{ route('Admin.Add.Game') }}">Add Games</a></li>
                             <li><a href="{{ route('Admin.All.Games') }}">All Games</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-041-graph"></i>
+                            <span class="nav-text">Wallet</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{ route('Admin.Add.Wallet.Address') }}">Add New Wallet Address</a></li>
                         </ul>
                     </li>
                     <li>

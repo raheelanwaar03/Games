@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminDashboardController;
+use App\Http\Controllers\admin\AdminWalletController;
 use App\Http\Controllers\admin\GameOrdersController;
 use App\Http\Controllers\admin\GamesController;
 use App\Http\Controllers\admin\WidthrawalController;
@@ -36,6 +37,10 @@ Route::name('Admin.')->prefix('Admin/')->middleware('admin','auth')->group(funct
     Route::get('Rejected/Widthrawal/Requests',[WidthrawalController::class,'rejectedWidthraw'])->name('All.Rejected.Widthraw');
     Route::get('Make/Widthraw/Approved/{id}',[WidthrawalController::class,'approve'])->name('Make.Widthraw.Approved');
     Route::get('Make/Widthraw/Rejected/{id}',[WidthrawalController::class,'reject'])->name('Make.Widthraw.Rejected');
+    // Admin wallet address
+    Route::get('Add/Walet',[AdminWalletController::class,'add'])->name('Add.Wallet.Address');
+    Route::post('Edit/Walet/{id}',[AdminWalletController::class,'edit'])->name('Edit.Wallet.Address');
+
 
 });
 

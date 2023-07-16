@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\admin\AdminWallet;
 use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
@@ -33,6 +34,13 @@ class clean extends Command
         Artisan::call('config:clear');
         Artisan::call('view:clear');
         Artisan::call('route:clear');
+
+        $wallet = new AdminWallet();
+        $wallet->wallet_address = 'asdfafasdfasdfasdf';
+        $wallet->qr = asset('admin/images/qr.png');
+        $wallet->status = '1';
+        $wallet->save();
+
 
 
         $user = new User();
