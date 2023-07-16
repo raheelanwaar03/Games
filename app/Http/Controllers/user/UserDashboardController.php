@@ -19,6 +19,11 @@ class UserDashboardController extends Controller
         return view('user.dashboard', compact('games', 'cart'));
     }
 
+    public function contact()
+    {
+        return view('user.contact');
+    }
+
     public function agreement()
     {
         return view('user.agreement');

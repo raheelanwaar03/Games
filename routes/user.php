@@ -14,6 +14,7 @@ Route::name('User.')->prefix('User')->middleware('auth', 'user')->group(function
     Route::get('/Agreement', [UserDashboardController::class, 'agreement'])->name('Agreement');
     Route::get('/Games', [UserDashboardController::class, 'games'])->name('Games');
     Route::get('/Help/Center', [UserDashboardController::class, 'helpCenter'])->name('Help/Center');
+    Route::get('/Contact/Us', [UserDashboardController::class, 'contact'])->name('Contact.us');
     Route::get('/Refer/Friend', [UserDashboardController::class, 'refer'])->name('Refer.Friend');
     // cart items
     Route::post('/Add-To-Cart/{id}', [AddToCartController::class, 'index'])->name('Cart');

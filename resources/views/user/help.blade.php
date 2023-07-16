@@ -49,7 +49,7 @@
 <body>
     <div class="header-section">
         <a href="#" onclick="window.history.back()">
-            <i class="bi bi-arrow-left text-white"></i>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-left text-white" style="color:blue"></i> back</button>
         </a>
         <div class="header-text">
             <h1>Welcome to our Help Page</h1>
