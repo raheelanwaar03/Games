@@ -10,7 +10,7 @@
 @endsection
 @section('content')
     <div class="container mb-3">
-        <div class="row auto-play">
+        <div class="row center">
             <div class="col-sm-4 px-1">
                 <img src="{{ asset('assets/img/baners1.jpg') }}" alt="image" class="img-responsive w-100" style="height: 200px;width: 150px;"
                     class="img-responsive img-fluid">
