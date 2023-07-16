@@ -49,7 +49,7 @@
                 <li class="nav-item" style="flex: 0 0 calc(15% - 10px);" role="presentation">
                     <button class="nav-link active"><i class="bi bi-circle-fill live"></i>
                         Recharge</button>
-                </li>asdf
+                </li>
             </a>
             <a href="{{ route('User.Widthraw') }}">
                 <li class="nav-item" style="flex: 0 0 calc(15% - 10px);" role="presentation">
