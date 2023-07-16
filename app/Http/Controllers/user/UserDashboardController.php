@@ -14,7 +14,7 @@ class UserDashboardController extends Controller
 {
     public function index()
     {
-        $games = Games::paginate(9);
+        $games = Games::paginate(10);
         $cart = AddToCart::where('user_id', auth()->user()->id)->first();
         return view('user.dashboard', compact('games', 'cart'));
     }

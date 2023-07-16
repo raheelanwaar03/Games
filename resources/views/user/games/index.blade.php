@@ -7,70 +7,45 @@
 @endsection
 
 @section('content')
-    <section class="pb-5">
-        <div class="container pb-5">
-            <div class="row justify-content-center">
-                <div class="col-sm-12">
-                    <div class="col-md-4 text-center mt-3">
-                        <div class="card" style="width: 18rem;">
-                            <iframe class="card-img-top" width="420" height="315"
-                                src="https://youtube.com/shorts/aH3q1-0jq-M">
-                            </iframe>
-                            <div class="card-body">
-                                <h4 class="card-text text-black">test video</h4>
-                                <p class="text-black">test description</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 text-center mt-3">
-                        <div class="card" style="width: 18rem;">
-                            <iframe class="card-img-top" width="420" height="315"
-                                src="https://youtube.com/shorts/CM6kx9zdsrc">
-                            </iframe>
-                            <div class="card-body">
-                                <h4 class="card-text text-black">test video</h4>
-                                <p class="text-black">test description</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 text-center mt-3">
-                        <div class="card" style="width: 18rem;">
-                            <iframe class="card-img-top" width="420" height="315"
-                                src="https://youtube.com/shorts/WkJHoP8d_-k?feature=share4">
-                            </iframe>
-                            <div class="card-body">
-                                <h4 class="card-text text-black">test video</h4>
-                                <p class="text-black">test description</p>
-                            </div>
-                        </div>
-                    </div>
+    <div class="container mb-5">
+        <div class="row mt-3 pb-5">
+            <div class="col-md-12 d-flex justify-content-center align-items-center">
+                <div class="col-sm-5 mx-2">
+
+                    <video width="320" height="240" controls class="w-100 img-responsive">
+                        <source src="{{ asset('assets/V⁯ideo/VID-20230715-WA0105.mp4') }}" type="video/mp4">
+                        Your browser does not support HTML video.
+                    </video>
                 </div>
-                <div class="col-sm-12">
-                    <div class="col-md-4 text-center mt-3">
-                        <div class="card" style="width: 18rem;">
-                            <iframe class="card-img-top" width="420" height="315"
-                                src="https://youtube.com/shorts/to-H29-ePJQ">
-                            </iframe>
-                            <div class="card-body">
-                                <h4 class="card-text text-black">test video</h4>
-                                <p class="text-black">test description</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 text-center mt-3">
-                        <div class="card" style="width: 18rem;">
-                            <iframe class="card-img-top" width="420" height="315"
-                                src="https://youtube.com/shorts/FS0_d4OnHok">
-                            </iframe>
-                            <div class="card-body">
-                                <h4 class="card-text text-black">test video</h4>
-                                <p class="text-black">test description</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-sm-5 mx-2">
+                    <video width="320" height="240" controls class="w-100 img-responsive">
+                        <source src="{{ asset('assets/V⁯ideo/VID-20230715-WA0106.mp4') }}" type="video/mp4">
+                        Your browser does not support HTML video.
+                    </video>
+                </div>
+            </div>
+            <div class="col-md-12 d-flex justify-content-center align-items-center">
+                <div class="col-sm-5 mx-2">
+                    <video width="320" height="240" controls class="w-100 img-responsive">
+                        <source src="{{ asset('assets/V⁯ideo/VID-20230715-WA0107.mp4') }}" type="video/mp4">
+                        Your browser does not support HTML video.
+                    </video>
+                </div>
+                <div class="col-sm-5 mx-2">
+                    <video width="320" height="240" controls class="w-100 img-responsive">
+                        <source src="{{ asset('assets/V⁯ideo/VID-20230715-WA0108.mp4') }}" type="video/mp4">
+                        Your browser does not support HTML video.
+                    </video>
+                </div>
+            </div>
+            <div class="col-md-12 d-flex justify-content-center align-items-center">
+                <div class="col-sm-5 mx-2">
+                    <video width="320" height="240" controls class="w-100 img-responsive">
+                        <source src="{{ asset('assets/V⁯ideo/VID-20230715-WA0110.mp4') }}" type="video/mp4">
+                        Your browser does not support HTML video.
+                    </video>
                 </div>
             </div>
         </div>
-        </div>
-    </section>
+    </div>
 @endsection

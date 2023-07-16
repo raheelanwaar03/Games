@@ -70,7 +70,7 @@
                         <div class="d-flex justify-content-end">
                             <div class="float-right">
                                 <a href="{{ route('User.Show.Details', ['id' => $game->id]) }}"
-                                    class="btn btn-sm btn-primary text-white" style="margin-top:-60px;">Buy</a>
+                                    class="btn btn-danger text-white" style="margin-top:-60px;">Buy</a>
                             </div>
                         </div>
                     </div>
