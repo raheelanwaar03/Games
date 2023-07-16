@@ -17,7 +17,7 @@
         .header-section {
             position: relative;
             height: 300px;
-            background-image: url('{{ asset('assets/invite.jpeg') }}');
+            background-image: url('{{ asset('assets/images (96).jpeg') }}');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -50,113 +50,94 @@
 <body>
     <div class="header-section">
         <a href="#" onclick="window.history.back()">
-            <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-left text-white"
-                    style="color:blue"></i> back</button>
+            <button type="submit" class="btn btn-sm btn-primary text-center"><i class="bi bi-arrow-left text-white"
+                    style="color:blue"></i></button>
         </a>
         <div class="header-text">
             <h1>Buy games to earn daily profit</h1>
         </div>
     </div>
 
-    <div class="container" style="margin-top: -20px">
-        <div class="row">
-            <div class="col-sm-12 d-flex jusitfy-content-around align-items-center">
-                <div class="col-sm-3">
-                    <div
-                        style="background-color:#ffffff;color:rgb(106, 94, 218);padding:10px;width:150px;border-radius:19px;position:fixed">
-                        <p class="text-center">Price: ${{ $game->price }}</p>
+    <form action="{{ route('User.Cart', ['id' => $game->id]) }}" method="POST">
+        @csrf
+
+        <div class="container" style="margin-top: -20px">
+            <div class="row">
+                <div class="col-sm-12 d-flex jusitfy-content-around align-items-center">
+                    <div class="col-sm-3">
+                        <div
+                            style="background-color:#ffffff;color:rgb(106, 94, 218);padding:10px;width:150px;border-radius:19px;position:top;">
+                            <p style="margin-top:8px;" class="text-center">Price: ${{ $game->price }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div
-                        style="background-color:#ffffff;color:rgb(106, 94, 218);padding:10px;width:150px;border-radius:19px;position:fixed">
-                        <p class="text-center">Quantity: 1</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="container" style="margin-top:100px">
-        <div class="row">
-            <div class="col-sm-12 d-flex justify-content-between align-items-center">
-                <div class="col-sm-2">
-                    <h4 style="color:rgb(102, 100, 100);font-size:small;">Image</h4>
-                </div>
-                <div class="col-sm-8">
-                    <img src="{{ asset('images/' . $game->image) }}" class="img-fluid img-responsive"
-                        style="width: 200px;height:150px" />
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container" style="margin-top:100px">
-        <div class="row">
-            <div class="col-sm-12 d-flex justify-content-between align-items-center">
-                <div class="col-sm-2">
-                    <h4 style="color:rgb(102, 100, 100);font-size:small;">Purchase Quantity</h4>
-                </div>
-                <div class="col-sm-8">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <i class="fa fa-minus" style="color: black;" onclick="updateQuantity('minus')"></i>
-                        <input name="qty" id="{{ $game->title }}" type="number" min="1" class="mx-3"
-                            style="width: 40px;border:none;" value="1">
-                        <i class="fa fa-plus" style="color: black;" onclick="updateQuantity('plus')"></i>
+                    <div class="col-sm-3">
+                        <div
+                            style="background-color:#ffffff;color:rgb(106, 94, 218);padding:10px;width:150px;border-radius:19px;position:top;">
+                            <p style="margin-top:8px;" class="text-center">Quantity: 1</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="container" style="margin-top:100px">
-        <div class="row">
-            <div class="col-sm-12 d-flex justify-content-between align-items-center">
-                <div class="col-sm-2">
-                    <h4 style="color:rgb(102, 100, 100);font-size:small;">Purchase Quantity</h4>
-                </div>
-                <div class="col-sm-8">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <i class="fa fa-minus" style="color: black;" onclick="updateQuantity('minus')"></i>
-                        <input name="qty" id="{{ $game->title }}" type="number" min="1" class="mx-3"
-                            style="width: 40px;border:none;" value="1">
-                        <i class="fa fa-plus" style="color: black;" onclick="updateQuantity('plus')"></i>
+
+        <div class="container" style="margin-top:100px">
+            <div class="row">
+                <div class="col-sm-12 d-flex justify-content-between align-items-center">
+                    <div class="col-sm-2">
+                        <h4 style="color:rgb(102, 100, 100);font-size:small;">{{ $game->title }}</h4>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-    {{-- <form action="{{ route('User.Cart', ['id' => $game->id]) }}" method="POST">
-                    @csrf
-                    <div class="d-flex justify-content-center mb-4">
+                    <div class="col-sm-8">
                         <img src="{{ asset('images/' . $game->image) }}" class="img-fluid img-responsive"
                             style="width: 200px;height:150px" />
                     </div>
-                    <p class="text-blue text-center">Detail : {{ $game->description }}</p>
-                    <p class="text-center mb-2" id="price">Price : ${{ $game->price }}</p>
-                    <h2 class="text-center">Name : {{ $game->title }}</h2>
-                    <p class="text-center mb-2">commission : ${{ $game->commission }}</p>
-                    <div class="d-flex justify-content-center align-items-center">
-                        <i class="fa fa-minus" onclick="updateQuantity('minus')"></i>
-                        <input name="qty" id="{{ $game->title }}" type="number" min="1" class="mx-3" style="width: 40px;"
-                            value="1">
-                        <i class="fa fa-plus" onclick="updateQuantity('plus')"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="margin-top:100px">
+            <div class="row">
+                <div class="col-sm-12 d-flex justify-content-between align-items-center">
+                    <div class="col-sm-2">
+                        <h4 style="color:rgb(102, 100, 100);font-size:small;">Purchase Quantity</h4>
                     </div>
-                    <button type="submit" class="gradient-btn-full">Pay Now</button>
-                </form> --}}
+                    <div class="col-sm-8">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i class="fa fa-minus" style="color: black;" onclick="updateQuantity('minus')"></i>
+                            <input name="qty" id="{{ $game->title }}" type="number" min="1" class="mx-3"
+                                style="width: 40px;border:none;" value="1">
+                            <i class="fa fa-plus" style="color: black;" onclick="updateQuantity('plus')"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="container px-4" style="margin-top:30px">
+            <div class="row">
+                <div class="col-sm-12 d-flex justify-content-between align-items-center"
+                    style="background-color: white;border-radius:30px;">
+                    <h4 style="color:rgb(102, 100, 100);font-size:small;margin-top:9px;">Total Price</h4>
+                    <p style="margin-top:9px;">{{ totalPrice() }}</p>
+                </div>
+            </div>
+        </div>
 
+        <div class="container px-4" style="margin-top:30px">
+            <div class="row">
+                <div class="col-sm-12 d-flex justify-content-between align-items-center"
+                    style="background-color: white;border-radius:30px;">
+                    <h4 style="color:rgb(102, 100, 100);font-size:small;margin-top:9px;">Estimatated Profit</h4>
+                    <p style="margin-top:9px;">{{ $game->commission }}</p>
+                </div>
+            </div>
+        </div>
 
+        <div class="my-3 px-3">
+            <button type="submit" class="btn btn-block btn-primary">Confirm Purchase</button>
+        </div>
 
-
-
+    </form>
 
     <footer>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
