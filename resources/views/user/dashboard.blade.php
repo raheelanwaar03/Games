@@ -64,7 +64,7 @@
         </ul>
     </section>
 
-    <div class="container mb-3">
+    <div class="container mb-3" style="margin-top: -30px">
         <h4>New Games</h4>
         <div class="row autoplay">
             @forelse ($games as $game)
@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <div class="container" style="margin-bottom: 10px">
+    <div class="container" style="margin-top: -40px">
         <div class="row">
             <div class="col-sm-12">
                 <hr style="color:white;width:100%;text-align:center;">
