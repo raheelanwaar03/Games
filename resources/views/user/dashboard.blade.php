@@ -85,6 +85,7 @@
     </div>
 
     <div class="container" style="margin-bottom: 100px">
+        <h4>All Games</h4>
         <div class="row">
             <div class="col-sm-12">
                 <hr style="color:white;width:100%;text-align:center;">
