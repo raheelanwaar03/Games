@@ -103,10 +103,10 @@
                     </div>
                     <div class="col-sm-8">
                         <div class="d-flex justify-content-center align-items-center">
-                            <i class="fa fa-minus" style="color: black;" onclick="updateQuantity('minus')"></i>
-                            <input name="qty" id="{{ $game->title }}" type="number" min="1" class="mx-3"
-                                style="width: 40px;border:none;" value="1">
-                            <i class="fa fa-plus" style="color: black;" onclick="updateQuantity('plus')"></i>
+                            <i class="fa fa-minus" style="color: black;" onclick="decreaseQuantity()"></i>
+                            <input name="qty" id="quantity" type="number" min="1" oninput="updatePrice()"
+                                class="mx-3" style="width: 40px;border:none;text-decoration:none;" value="1">
+                            <i class="fa fa-plus" style="color: black;" onclick="increaseQuantity()"></i>
                         </div>
                     </div>
                 </div>
@@ -118,7 +118,7 @@
                 <div class="col-sm-12 d-flex justify-content-between align-items-center"
                     style="background-color: white;border-radius:30px;">
                     <h4 style="color:rgb(102, 100, 100);font-size:small;margin-top:9px;">Total Price</h4>
-                    <p style="margin-top:9px;">{{ totalPrice() }}</p>
+                    <p style="margin-top:9px;" id="price">{{ $game->price }}</p>
                 </div>
             </div>
         </div>
@@ -128,11 +128,11 @@
                 <div class="col-sm-12 d-flex justify-content-between align-items-center"
                     style="background-color: white;border-radius:30px;">
                     <h4 style="color:rgb(102, 100, 100);font-size:small;margin-top:9px;">Estimatated Profit</h4>
-                    <p style="margin-top:9px;">{{ $game->commission }}</p>
+
+                    <p style="margin-top:9px;" id="commission">{{ $game->commission }}</p>
                 </div>
             </div>
         </div>
-
         <div class="my-3 px-3">
             <button type="submit" class="btn btn-block btn-primary">Confirm Purchase</button>
         </div>
@@ -144,31 +144,62 @@
             integrity="sha384-KyZx2XRvoKMEq0bod04pPzGX5iQ4aFvhFVX9oAKSoN6gep0J1NWuUgWJ45ZfprV3" crossorigin="anonymous">
         </script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-        <script>
-            function updateQuantity(operation) {
-                var quantityElement = document.getElementById('{{ $game->title }}');
-                var quantity = parseInt(quantityElement.value);
-
-                // Increase or decrease the quantity based on the operation
-                if (operation === 'plus') {
-                    quantity += 1;
-                } else if (operation === 'minus') {
-                    if (quantity > 1) {
-                        quantity -= 1;
-                    }
-                }
-
-                // Update the quantity input field
-                quantityElement.value = quantity;
-
-                // multiply qty with price
-                var newPrice = price * quantity;
-                priceElement.textContent = newPrice.toFixed(2);
-
-            }
-        </script>
     </footer>
+
+    <script>
+        function updatePrice() {
+            // Get the quantity input and price element
+            var quantityInput = document.getElementById('quantity');
+            var priceElement = document.getElementById('price');
+            var commissionElement = document.getElementById('commission');
+
+            // Get the quantity value and convert it to a number
+            var quantity = parseInt(quantityInput.value);
+
+            // Update the price based on the quantity
+
+            var commission = {{$game->commission}};
+
+            var price = {{ $game->price }}; // Assuming initial price is $10.00
+            var totalPrice = (price * quantity).toFixed(2); // Calculate total price with 2 decimal places
+
+            // Update the price element with the new total price
+            priceElement.textContent = totalPrice;
+
+            // calculating total commission
+
+            var totalCommission = (commission * quantity).toFixed(2);
+            // update the commission
+            commissionElement.textContent = totalCommission;
+
+        }
+
+        function increaseQuantity() {
+            // Get the quantity input element
+            var quantityInput = document.getElementById('quantity');
+
+            // Increase the quantity value by 1
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+
+            // Update the price
+            updatePrice();
+        }
+
+        function decreaseQuantity() {
+            // Get the quantity input element
+            var quantityInput = document.getElementById('quantity');
+
+            // Decrease the quantity value by 1, but not below 1
+            var quantity = parseInt(quantityInput.value);
+            if (quantity > 1) {
+                quantityInput.value = quantity - 1;
+            }
+
+            // Update the price
+            updatePrice();
+        }
+    </script>
+
 </body>
 
 </html>

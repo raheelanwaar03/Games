@@ -114,7 +114,7 @@ class UserDashboardController extends Controller
         if ($userLevel != 'level 1') {
             return redirect()->back()->with('error', 'You have not activated your referal link yet.');
         }
-        $users = User::all();
+        $users = User::where('referal', auth()->user()->email)->get();
         return  view('user.wallet.team', compact('users'));
     }
 }
