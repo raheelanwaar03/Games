@@ -17,11 +17,10 @@
             <span> </span>
         </div>
         <div class="text-center mb-3">
-            <img src="{{ asset('assets/img/Qr.jpeg') }}" height="200px" width="200px" alt="Qr">
+            <img src="{{ asset('images/' . $wallet->qr) }}" height="200px" width="200px" alt="Qr">
         </div>
         <div class="input-box">
-            <input type="text" value="0xb99826f0a1c4b3e42dddfe70c57d2e9e6a944c6f" style="width: 100%" id="myInput"
-                readonly />
+            <input type="text" value="{{ $wallet->wallet_address }}" style="width: 100%" id="myInput" readonly />
             <a onclick="copy()" class="ref-copy pr-4" style="border-radius:10px;"><i class="fa fa-copy"></i></a>
         </div>
         <hr color="white">

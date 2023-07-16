@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\AdminWallet;
 use App\Models\User;
 use App\Models\user\UserDeposit;
 use App\Models\user\UserTranscations;
@@ -13,8 +14,9 @@ class UserDepositController extends Controller
 
     public function index(Request $request)
     {
+        $wallet = AdminWallet::where('status','1')->first();
         $amount = $request->amount;
-        return view('user.deposit.index',compact('amount'));
+        return view('user.deposit.index',compact('amount','wallet'));
     }
 
     public function store(Request $request,$amount)
