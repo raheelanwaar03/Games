@@ -85,7 +85,6 @@
     </div>
 
     <div class="container" style="margin-bottom: 100px">
-        <h4>All Games</h4>
         <div class="row">
             <div class="col-sm-12">
                 <hr style="color:white;width:100%;text-align:center;">
@@ -94,10 +93,11 @@
     </div>
 
     <div class="container mb-5" style="margin-bottom: 80px;margin-top:-30px;">
+    <h4>All Games</h4>
         <div class="row autoplay">
             @forelse ($games as $game)
                 <div class="col-sm-4 px-1">
-                    <img src="{{ asset('images/' . $game->image) }}" class="img-responsive w-100" height="250px"
+                    <img src="{{ asset('images/' . $game->image) }}" class="img-responsive w-100" height="200px"
                         width="250px" alt="image">
                     <div class="d-flex justify-content-end">
                         <div class="float-right">
