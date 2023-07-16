@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('user_transcations', function (Blueprint $table) {
             $table->id();
-            $table->string('transcation_id');
             $table->string('user_id');
             $table->string('amount');
             $table->string('type');

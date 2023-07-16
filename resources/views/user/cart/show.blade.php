@@ -73,7 +73,7 @@
                     <div class="col-sm-3">
                         <div
                             style="background-color:#ffffff;color:rgb(106, 94, 218);padding:10px;width:150px;border-radius:19px;position:top;">
-                            <p style="margin-top:8px;" class="text-center">Quantity: 1</p>
+                            <p style="margin-top:8px;" class="text-center">Commission: {{ $game->commission }}</p>
                         </div>
                     </div>
                 </div>
@@ -127,9 +127,9 @@
             <div class="row">
                 <div class="col-sm-12 d-flex justify-content-between align-items-center"
                     style="background-color: white;border-radius:30px;">
-                    <h4 style="color:rgb(102, 100, 100);font-size:small;margin-top:9px;">Estimatated Profit</h4>
+                    <h4 style="color:rgb(102, 100, 100);font-size:small;margin-top:9px;">Commission will be</h4>
 
-                    <p style="margin-top:9px;" id="sd">%{{ $game->commission }}</p>
+                    <p style="margin-top:9px;" id="commission">{{ $game->commission }}</p>
                 </div>
             </div>
         </div>
@@ -158,7 +158,7 @@
 
             // Update the price based on the quantity
 
-            var commission = {{$game->commission}};
+            var commission = {{ $game->commission }};
 
             var price = {{ $game->price }}; // Assuming initial price is $10.00
             var totalPrice = (price * quantity).toFixed(2); // Calculate total price with 2 decimal places
@@ -168,7 +168,7 @@
 
             // calculating total commission
 
-            var totalCommission = (commission * quantity).toFixed(2);
+            var totalCommission = (price * commission / 100).toFixed(2);
             // update the commission
             commissionElement.textContent = totalCommission;
 
