@@ -3,9 +3,6 @@
 @section('cart')
     <div class="d-flex justify-content-between align-items-center">
         <h1 class="fw-500 mb-3">User Dashboard</h1>
-        @if ($cart != null)
-            <a href="{{ route('User.Cart.Payment') }}" class="btn btn-primary">Pay Now</a>
-        @endif
     </div>
 @endsection
 @section('content')
@@ -37,30 +34,13 @@
             </div>
         </div>
     </div>
-
-    <hr color="white">
-
-
-    <div class="container mb-5">
-        <h4>New Games</h4>
-        <div class="row center">
-            @forelse ($games as $game)
-                <div class="col-sm-4 px-1">
-                    <img src="{{ asset('images/' . $game->image) }}" class="img-responsive w-100" height="150px"
-                        width="150px" alt="image">
-                    <div class="d-flex justify-content-end">
-                        <div class="float-right">
-                            <a href="{{ route('User.Show.Details', ['id' => $game->id]) }}"
-                                class="btn btn-danger text-white" style="margin-top:-61px;">Buy</a>
-                        </div>
-                    </div>
-                </div>
-            @empty
-                <h3>No Game Added Yet!</h3>
-            @endforelse
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <hr style="color:white;width:100%;text-align:center;">
+            </div>
         </div>
     </div>
-
 
     <section class="matchboard position-relative">
         <ul class="nav nav-pills d-flex justify-content-around align-items-center" style="flex-wrap: wrap;" id="pills-tab"
@@ -84,9 +64,36 @@
         </ul>
     </section>
 
+    <div class="container mb-5">
+        <h4>New Games</h4>
+        <div class="row autoplay">
+            @forelse ($games as $game)
+                <div class="col-sm-4 px-1">
+                    <img src="{{ asset('images/' . $game->image) }}" class="img-responsive w-100" height="100px"
+                        width="100px" alt="image">
+                    <div class="d-flex justify-content-end">
+                        <div class="float-right">
+                            <a href="{{ route('User.Show.Details', ['id' => $game->id]) }}"
+                                class="btn btn-danger text-white" style="margin-top:-61px;">Buy</a>
+                        </div>
+                    </div>
+                </div>
+            @empty
+                <h3>No Game Added Yet!</h3>
+            @endforelse
+        </div>
+    </div>
+
+    <div class="container" style="margin-bottom: 100px">
+        <div class="row">
+            <div class="col-sm-12">
+                <hr style="color:white;width:100%;text-align:center;">
+            </div>
+        </div>
+    </div>
 
     <div class="container mb-5" style="margin-bottom: 80px;margin-top:-30px;">
-        <div class="row center">
+        <div class="row autoplay">
             @forelse ($games as $game)
                 <div class="col-sm-4 px-1">
                     <img src="{{ asset('images/' . $game->image) }}" class="img-responsive w-100" height="250px"
