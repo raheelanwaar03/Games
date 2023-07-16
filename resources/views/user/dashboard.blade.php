@@ -38,6 +38,9 @@
         </div>
     </div>
 
+    <hr color="white">
+
+
     <div class="container mb-5">
         <h4>New Games</h4>
         <div class="row center">
@@ -82,7 +85,7 @@
     </section>
 
 
-    <div class="container mb-5" style="margin-bottom: 80px;margin-top:-20px;">
+    <div class="container mb-5" style="margin-bottom: 80px;margin-top:-30px;">
         <div class="row center">
             @forelse ($games as $game)
                 <div class="col-sm-4 px-1">
