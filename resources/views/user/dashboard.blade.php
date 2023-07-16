@@ -12,28 +12,28 @@
     <div class="container mb-3">
         <div class="row center">
             <div class="col-sm-4 px-1">
-                <img src="{{ asset('assets/img/baners1.jpg') }}" alt="image" class="img-responsive w-100" style="height: 200px;width: 150px;"
-                    class="img-responsive img-fluid">
+                <img src="{{ asset('assets/img/baners1.jpg') }}" alt="image" class="img-responsive w-100"
+                    style="height: 200px;width: 150px;" class="img-responsive img-fluid">
             </div>
             <div class="col-sm-4 px-1">
-                <img src="{{ asset('assets/img/banner2.jpg') }}" alt="image" class="img-responsive w-100" style="height: 200px;width: 150px;"
-                    class="img-responsive img-fluid">
+                <img src="{{ asset('assets/img/banner2.jpg') }}" alt="image" class="img-responsive w-100"
+                    style="height: 200px;width: 150px;" class="img-responsive img-fluid">
             </div>
             <div class="col-sm-4 px-1">
-                <img src="{{ asset('assets/img/banner3.jpg') }}" alt="image" class="img-responsive w-100" style="height: 200px;width: 150px;"
-                    class="img-responsive img-fluid">
+                <img src="{{ asset('assets/img/banner3.jpg') }}" alt="image" class="img-responsive w-100"
+                    style="height: 200px;width: 150px;" class="img-responsive img-fluid">
             </div>
             <div class="col-sm-4 px-1">
-                <img src="{{ asset('assets/img/baners1.jpg') }}" alt="image" class="img-responsive w-100" style="height: 200px;width: 150px;"
-                    class="img-responsive img-fluid">
+                <img src="{{ asset('assets/img/baners1.jpg') }}" alt="image" class="img-responsive w-100"
+                    style="height: 200px;width: 150px;" class="img-responsive img-fluid">
             </div>
             <div class="col-sm-4 px-1">
-                <img src="{{ asset('assets/img/banner2.jpg') }}" alt="image" class="img-responsive w-100" style="height: 200px;width: 150px;"
-                    class="img-responsive img-fluid">
+                <img src="{{ asset('assets/img/banner2.jpg') }}" alt="image" class="img-responsive w-100"
+                    style="height: 200px;width: 150px;" class="img-responsive img-fluid">
             </div>
             <div class="col-sm-4 px-1">
-                <img src="{{ asset('assets/img/banner3.jpg') }}" alt="image" class="img-responsive w-100" style="height: 200px;width: 150px;"
-                    class="img-responsive img-fluid">
+                <img src="{{ asset('assets/img/banner3.jpg') }}" alt="image" class="img-responsive w-100"
+                    style="height: 200px;width: 150px;" class="img-responsive img-fluid">
             </div>
         </div>
     </div>
@@ -60,24 +60,23 @@
         </ul>
     </section>
 
-    <div class="container mb-5">
-        <div class="row mt-3 pb-5">
-            <div class="col-md-12 d-flex justify-content-center align-items-center">
-                @forelse ($games as $game)
-                    <div class="col-sm-5 mx-2">
-                        <img src="{{ asset('images/' . $game->image) }}" class="img-responsive w-100" height="250px"
-                            width="250px" alt="image">
-                        <div class="d-flex justify-content-end">
-                            <div class="float-right">
-                                <a href="{{ route('User.Show.Details', ['id' => $game->id]) }}"
-                                    class="btn btn-danger text-white" style="margin-top:-61px;">Buy</a>
-                            </div>
+
+    <div class="container mb-3">
+        <div class="row center">
+            @forelse ($games as $game)
+                <div class="col-sm-4 px-1">
+                    <img src="{{ asset('images/' . $game->image) }}" class="img-responsive w-100" height="250px"
+                        width="250px" alt="image">
+                    <div class="d-flex justify-content-end">
+                        <div class="float-right">
+                            <a href="{{ route('User.Show.Details', ['id' => $game->id]) }}"
+                                class="btn btn-danger text-white" style="margin-top:-61px;">Buy</a>
                         </div>
                     </div>
-                @empty
-                    <h3>No Game Added Yet!</h3>
-                @endforelse
-            </div>
+                </div>
+            @empty
+                <h3>No Game Added Yet!</h3>
+            @endforelse
         </div>
     </div>
 @endsection
