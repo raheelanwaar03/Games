@@ -129,7 +129,7 @@
                     style="background-color: white;border-radius:30px;">
                     <h4 style="color:rgb(102, 100, 100);font-size:small;margin-top:9px;">Estimatated Profit</h4>
 
-                    <p style="margin-top:9px;" id="commission">{{ $game->commission }}</p>
+                    <p style="margin-top:9px;" id="sd">%{{ $game->commission }}</p>
                 </div>
             </div>
         </div>

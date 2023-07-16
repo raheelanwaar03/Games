@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\user\UserTranscations;
 use App\Models\user\UserWallet;
 use App\Models\user\WidthrawBalance;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class UserWidthrawController extends Controller
@@ -31,6 +32,12 @@ class UserWidthrawController extends Controller
             'pin' => ['required', 'max:5'],
         ]);
 
+        $userWidthraw = WidthrawBalance::where('user_id', auth()->user()->id)->where('status', 'pending')->whereDate('created_at', Carbon::today())->first();
+        if ($userWidthraw != null) {
+            return redirect()->back()->with('error', 'You can only widthraw once a day');
+        }
+
+
         $wallet = UserWallet::where('user_id', auth()->user()->id)->first();
         $pin = $wallet->pin;
 
@@ -42,6 +49,19 @@ class UserWidthrawController extends Controller
             return redirect()->back()->with('error', 'you have not enough balance');
         }
 
+        if (auth()->user()->balance > 10) {
+            return redirect()->back()->with('error', 'you should have more than 10$ to widthraw it will cut 10% fees of your widthrawal amount');
+        }
+
+        if ($validated['amount'] <= 200) {
+            return redirect()->back()->with('error', 'You cannot widthraw more than 200$.');
+        }
+
+        // calculating user widthrawal 10% fees
+        $widthrawalFee = $validated['amount'] * 10 / 100;
+
+        $widthrawalFess = $widthrawalFee + $validated['amount'];
+
         $userWidthraw = new WidthrawBalance();
         $userWidthraw->user_id = auth()->user()->id;
         $userWidthraw->user_name = $wallet->user_name;
@@ -52,7 +72,7 @@ class UserWidthrawController extends Controller
 
         // dedecting amount from user balance
         $user = User::where('id', $wallet->user_id)->first();
-        $user->balance -= $validated['amount'];
+        $user->balance -= $widthrawalFess;
         $user->save();
 
         // adding in to user transcations
@@ -64,7 +84,7 @@ class UserWidthrawController extends Controller
         $user_transcation->status = 'pending';
         $user_transcation->save();
 
-        return redirect()->back()->with('success', 'Your Widthraw process activated');
+        return redirect()->back()->with('success', 'Your Widthraw process activated. It will took 10 to 12hrs.');
     }
 
     public function seeAll()

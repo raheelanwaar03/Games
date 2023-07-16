@@ -44,7 +44,9 @@ class AdminDashboardController extends Controller
 
         foreach ($games as $game) {
             // getting game daily commission
-            $game_commission = $game->commission;
+            $gameCommission = $game->commission;
+            $gameAmount = $game->total_price;
+            $game_commission = $gameAmount * $gameCommission / 100;
             // 20 % of commission
             $upliner = $game_commission * 20 / 100;
             // 15 % of commission
