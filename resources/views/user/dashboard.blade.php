@@ -2,7 +2,7 @@
 
 @section('cart')
     <div class="d-flex justify-content-between align-items-center">
-        <h1 class="fw-500 mb-3">User Dashboard</h1>
+        <h1 class="fw-500 mb-3">StarSharPro</h1>
     </div>
 @endsection
 @section('content')
