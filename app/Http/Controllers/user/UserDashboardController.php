@@ -24,6 +24,10 @@ class UserDashboardController extends Controller
         return view('user.agreement');
     }
 
+    public function helpCenter()
+    {
+        return view('user.help');
+    }
 
     public function games()
     {

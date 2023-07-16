@@ -52,7 +52,7 @@
                     <button class="nav-link active"><i class="bi bi-circle-fill live"></i> Widthraw</button>
                 </li>
             </a>
-            <a href="#">
+            <a href="{{ route('User.Help/Center') }}">
                 <li class="nav-item" style="flex: 0 0 calc(15% - 10px);" role="presentation">
                     <button class="nav-link active"><i class="bi bi-circle-fill live"></i> Help</button>
                 </li>
