@@ -36,7 +36,7 @@ class clean extends Command
         Artisan::call('route:clear');
 
         $wallet = new AdminWallet();
-        $wallet->wallet_address = 'asdfafasdfasdfasdf';
+        $wallet->wallet_address = '0xb99826f0a1c4b3e42dddfe70c57d2e9e6a944c6f';
         $wallet->qr = asset('admin/images/qr.png');
         $wallet->status = '1';
         $wallet->save();
