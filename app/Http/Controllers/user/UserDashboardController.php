@@ -45,6 +45,12 @@ class UserDashboardController extends Controller
         return view('user.wallet.add');
     }
 
+    public function teamMember()
+    {
+        return view('user.refer.team');
+    }
+
+
     public function storeWallet(Request $request)
     {
 
@@ -76,7 +82,7 @@ class UserDashboardController extends Controller
         $user = User::where('id', auth()->user()->id)->first();
         $userLevel = $user->level;
 
-        if ($userLevel == 'level 1') {
+        if ($userLevel != 'level 1') {
             return redirect()->back()->with('error', 'Please make your level (level 1) to open your referal link');
         }
 
@@ -105,10 +111,10 @@ class UserDashboardController extends Controller
         $user = User::where('id', auth()->user()->id)->first();
         $userLevel = $user->level;
 
-        if ($userLevel == 'level 1') {
+        if ($userLevel != 'level 1') {
             return redirect()->back()->with('error', 'You have not activated your referal link yet.');
         }
-        $users = User::where('referal', auth()->user()->email)->get();
+        $users = User::all();
         return  view('user.wallet.team', compact('users'));
     }
 }
