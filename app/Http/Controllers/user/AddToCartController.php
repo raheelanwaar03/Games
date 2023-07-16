@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Models\admin\Games;
+use App\Models\admin\AdminWallet;
 use App\Models\user\AddToCart;
 use App\Models\user\UserTranscations;
 use App\Models\user\GamesPrice;
@@ -26,10 +27,14 @@ class AddToCartController extends Controller
 
         // Checking that user already select this game befor or not
 
-        $game = AddToCart::where('user_id',auth()->user()->id)->where('game_id',$game_id)->first();
-        if($game != '')
-        {
-            return redirect()->route('User.Cart.Payment')->with('success','You already selected this game before');
+        $game = AddToCart::where('user_id', auth()->user()->id)->where('game_id', $game_id)->first();
+        if ($game != '') {
+            $game->price = $game_price;
+            $game->qty = $request->qty;
+            $game->total_price = $total_price;
+            $game->commission = $game_commission;
+            $game->save();
+            return redirect()->route('User.Cart.Payment');
         }
 
 
@@ -56,7 +61,8 @@ class AddToCartController extends Controller
 
     public function cartPayment()
     {
-        return view('user.cart.payment');
+        $wallet = AdminWallet::where('status','1')->first();
+        return view('user.cart.payment',compact('wallet'));
     }
 
     public function cartBill(Request $request)
@@ -102,10 +108,6 @@ class AddToCartController extends Controller
     public function details($id)
     {
         $game = Games::find($id);
-        return view('user.cart.show',compact('game'));
+        return view('user.cart.show', compact('game'));
     }
-
-
-
-
 }

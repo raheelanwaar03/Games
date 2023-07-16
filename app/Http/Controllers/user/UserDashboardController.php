@@ -9,14 +9,16 @@ use App\Models\user\AddToCart;
 use App\Models\user\UserTranscations;
 use App\Models\user\UserWallet;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class UserDashboardController extends Controller
 {
     public function index()
     {
-        $games = Games::paginate(10);
+        $newGame = Games::where('created_at', Carbon::now()->subDays(7)->toDateTimeString())->get();
+        $games = Games::all();
         $cart = AddToCart::where('user_id', auth()->user()->id)->first();
-        return view('user.dashboard', compact('games', 'cart'));
+        return view('user.dashboard', compact('games', 'newGame', 'cart'));
     }
 
     public function contact()

@@ -110,14 +110,6 @@
                         </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-041-graph"></i>
-                            <span class="nav-text">Wallet</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{ route('Admin.Add.Wallet.Address') }}">Wallet Address</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-086-star"></i>
                             <span class="nav-text">Game Orders</span>
                         </a>

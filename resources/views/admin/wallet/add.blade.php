@@ -35,7 +35,7 @@
                                             width="150px" class="img-fluid img-responsive">
                                     </div>
                                     <div class="">
-                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                        <button type="submit" class="btn btn-primary">Change</button>
                                     </div>
                                 </form>
                             </div>

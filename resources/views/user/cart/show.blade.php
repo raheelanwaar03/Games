@@ -73,7 +73,7 @@
                     <div class="col-sm-3">
                         <div
                             style="background-color:#ffffff;color:rgb(106, 94, 218);padding:10px;width:150px;border-radius:19px;position:top;">
-                            <p style="margin-top:8px;" class="text-center">Commission: {{ $game->commission }}</p>
+                            <p style="margin-top:8px;" class="text-center">Commission: {{ $game->commission }}%</p>
                         </div>
                     </div>
                 </div>
@@ -128,8 +128,7 @@
                 <div class="col-sm-12 d-flex justify-content-between align-items-center"
                     style="background-color: white;border-radius:30px;">
                     <h4 style="color:rgb(102, 100, 100);font-size:small;margin-top:9px;">Commission will be</h4>
-
-                    <p style="margin-top:9px;" id="commission">{{ $game->commission }}</p>
+                    <p style="margin-top:9px;" id="commission">{{ ($game->prie * $game->commission) / 100 }}</p>
                 </div>
             </div>
         </div>
@@ -166,11 +165,15 @@
             // Update the price element with the new total price
             priceElement.textContent = totalPrice;
 
+            document.getElementById('price').innerText = totalPrice;
+
             // calculating total commission
 
             var totalCommission = (price * commission / 100).toFixed(2);
             // update the commission
             commissionElement.textContent = totalCommission;
+
+            document.getElementById('commission').innerText = totalCommission;
 
         }
 
@@ -183,6 +186,8 @@
 
             // Update the price
             updatePrice();
+
+
         }
 
         function decreaseQuantity() {
@@ -194,6 +199,8 @@
             if (quantity > 1) {
                 quantityInput.value = quantity - 1;
             }
+
+            document.getElementById('quantity').innerText = quantity;
 
             // Update the price
             updatePrice();
