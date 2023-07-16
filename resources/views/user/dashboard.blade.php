@@ -61,7 +61,7 @@
     </section>
 
 
-    <div class="container mb-3">
+    <div class="container mb-5" style="margin-bottom: 50px">
         <div class="row center">
             @forelse ($games as $game)
                 <div class="col-sm-4 px-1">
